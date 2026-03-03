@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>光與塵 - 官方網站</title>
+  <link rel="icon" type="image/svg+xml" href="webpic/Icon_color.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          // 如果需要更細緻的自定義顏色可以在這裡設定
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-stone-900 dark:bg-slate-800 dark:text-stone-100 transition-colors duration-300">
+
+<header class="fixed top-0 w-full z-50 bg-stone-50 dark:bg-gray-900 shadow-md transition-colors duration-300">
+    <nav class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16 md:h-20 lg:h-20">
+      <div class="flex items-center">
+        <a href="LightDust-home.html">
+          <img src="webpic/Logob1.svg" alt="Logo" class="h-14 md:h-16 lg:h-16 block dark:hidden">
+          <img src="webpic/Logocng.svg" alt="Logo" class="h-14 md:h-16 lg:h-16 hidden dark:block">
+        </a>
+      </div>
+
+      <ul class="hidden lg:flex space-x-6">
+        <li><a href="LightDust-home.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang" data-zh="首頁" data-en="Home">首頁</a></li>
+        <li><a href="LightDust-animation.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang" data-zh="動畫" data-en="Animation">動畫</a></li>
+        <li><a href="LightDust-world.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang" data-zh="世界觀" data-en="World">世界觀</a></li>
+        <li><a href="LightDust-characters.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang" data-zh="角色介紹" data-en="Characters">角色介紹</a></li>
+        <li class="relative group">
+          <a href="LightDust-gallery.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang py-4" data-zh="設定集" data-en="Gallery">設定集</a>
+          <div class="absolute left-0 mt-2 w-40 bg-white dark:bg-gray-800 shadow-xl rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-stone-100 dark:border-slate-700">
+            <a href="LightDust-drafts.html" class="block px-4 py-2 text-sm hover:bg-stone-50 dark:hover:bg-slate-700 lang" data-zh="設計草稿" data-en="Drafts">設計草稿</a>
+            <a href="LightDust-modeling.html" class="block px-4 py-2 text-sm hover:bg-stone-50 dark:hover:bg-slate-700 lang" data-zh="模型製作" data-en="3D Modeling">模型製作</a>
+            <a href="LightDust-behindscenes.html" class="block px-4 py-2 text-sm hover:bg-stone-50 dark:hover:bg-slate-700 lang" data-zh="幕後花絮" data-en="Behind Scenes">幕後花絮</a>
+          </div>
+        </li>
+        <li><a href="LightDust-about.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang" data-zh="創作進度" data-en="About">創作進度</a></li>
+      </ul>
+
+      <div class="flex space-x-3 items-center">
+        <button id="langToggle" class="px-2 py-1 rounded text-white transition-colors 
+               bg-amber-600 hover:bg-amber-700 
+               dark:bg-indigo-600 dark:hover:bg-indigo-500">
+          EN
+        </button>
+        
+        <button id="themeToggle" class="px-2 py-1 rounded transition-colors
+               bg-stone-200 hover:bg-stone-300 
+               dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200">
+          ☀️
+        </button>
+
+        <button id="menuToggle" class="lg:hidden px-2 py-1 rounded transition-colors
+               bg-stone-200 hover:bg-stone-300
+               dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200">
+          ☰
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobileMenu" class="hidden lg:hidden px-4 py-2 space-y-2 transition-colors
+         bg-stone-100 dark:bg-slate-900">
+      <a href="testgpt6.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="首頁" data-en="Home">首頁</a>
+      <a href="testgpt6_a.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="動畫" data-en="World">動畫</a>
+      <a href="testgpt6_w.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="世界觀" data-en="World">世界觀</a>
+      <a href="testgpt6_c.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="角色介紹" data-en="Characters">角色介紹</a>
+      <a href="testgpt6_g.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="設定集" data-en="Gallery">設定集</a>
+      <a href="testgpt6_p.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="創作進度" data-en="About">創作進度</a>
+    </div>
+  </header>
+
+
+  <section class="relative min-h-[80vh] md:h-screen flex items-center pt-16">
+    <img src="webpic/Concept01sq.png" alt="Hero background for small screens" class="absolute inset-0 w-full h-full object-cover lg:hidden" />
+    <img src="webpic/Concept01.png" alt="Hero background for medium and up" class="absolute inset-0 w-full h-full object-cover hidden lg:block" />
+
+    <div class="relative z-10 text-white max-w-3xl px-12">
+      <h1 class="font-black mb-4 leading-tight">
+        <span class="lang-zh block text-7xl md:text-8xl lg:text-9xl ml-4 md:ml-10 lg:ml-12" style="font-family: 'Noto Serif TC', serif;">光與塵</span>
+        <span class="lang-en hidden block text-5xl md:text-7xl">Light and Dust</span>
+      </h1>
+      <h2 class="mb-2 font-semibold">
+        <span class="lang-zh block text-2xl md:text-2xl ml-6 md:ml-14 lg:ml-16" style="font-family: 'Noto Sans TC', sans-serif;">動畫短片介紹</span>
+        <span class="lang-en hidden block text-2xl md:text-2xl">Animation Short Film</span>
+      </h2>
+      <p class="mt-2 font-medium">
+        <span class="lang-zh block text-xl md:text-xl ml-6 md:ml-14 lg:ml-16">來自遙遠國度，一趟並肩、分歧、決裂到和解的旅程...</span>
+        <span class="lang-en hidden block text-xl md:text-xl">From distant lands of division and reconciliation</span>
+      </p>
+    </div>
+
+    <div
+    class="absolute left-0 top-0 h-full w-3/5 z-5 pointer-events-none"
+    style="--mask-mid:20%; background: linear-gradient(90deg,
+              rgba(24, 24, 24, 0.5) 20%,
+              rgba(31, 31, 31, 0.425) 40%,
+              rgba(39, 39, 39, 0.375) 50%,
+              rgba(46, 46, 46, 0.175) 70%,
+              rgba(53, 53, 53, 0.05) 85%,
+              rgba(53, 53, 53, 0.01) 95%,
+              rgba(0,0,0,0) 100%);">
+    </div>
+  </section>
+
+
+  <section class="relative h-screen flex items-center justify-center text-center px-4">
+    <div class="relative z-10 bg-white/80 dark:bg-black/60 backdrop-blur-md p-8 md:p-16 rounded-2xl max-w-4xl border border-stone-200 dark:border-white/10 shadow-2xl transition-colors duration-500">
+      
+      <h2 class="text-3xl md:text-5xl font-bold mb-8 tracking-widest
+                bg-gradient-to-r from-amber-600 via-amber-400 to-amber-700 bg-clip-text text-transparent 
+                dark:text-indigo-300 dark:bg-none dark:bg-clip-border" 
+          style="font-family: 'Noto Serif TC', serif;">
+        <span class="lang" data-zh="動機目的" data-en="Our Vision">動機目的</span>
+      </h2>
+      
+      <div class="space-y-6 text-lg md:text-xl text-stone-700 dark:text-gray-200 leading-relaxed font-serif">
+        <p class="lang" 
+          data-zh="在價值觀衝突愈發頻繁的時代，理念的堅持常成為人與人之間的牆，而原本親密的關係也可能因此產生隔閡。" 
+          data-en="The creation of 'Light and Dust' stems from deep reflections on human conflict and reconciliation. In an era of division, we seek to explore how different perspectives find resonance through visuals and music.">
+        </p>
+        
+        <p class="lang" 
+          data-zh="《Light and Dust》從這樣的現代困境出發，借鑑聖經中天使與惡魔的設定，以原創世界觀為背景，將「光」設定為象徵秩序與穩定的力量，而「塵」則象徵變化與自由。" 
+          data-en="We are dedicated to combining traditional aesthetics with modern animation techniques to build a 'Realm of Division' that is both alien and familiar. Through intricate scene design, we hope to immerse the audience in the delicate destiny between two cities.">
+        </p>
+        
+        <p class="lang" 
+          data-zh="Seraphina 與 Luxsariel兩位主角從並肩、分歧、決裂到和解的旅程，呈現信念在衝突中可能造成傷害，而分離與遺憾，也可能是重新理解彼此的契機。" 
+          data-en="Ultimately, the purpose of this work is to convey hope—that even in the deepest dust, as long as light exists, broken souls will eventually find a chance to reunite.">
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative min-h-[600px] md:h-screen flex flex-col justify-start md:justify-center px-8 md:px-20 bg-stone-50 dark:bg-slate-900 overflow-hidden">
+    
+    <div class="my-8 mb-10 md:mt-0 md:mb-0 md:absolute md:top-20 md:left-20">
+      <h2 class="text-3xl md:text-4xl font-bold border-l-4 border-amber-600 dark:border-indigo-600 lg:border-0 pl-4 lang text-stone-900 dark:text-gray-100" data-zh="特色" data-en="Features" style="font-family: 'Noto Serif TC', serif;">
+        特色
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-7xl lg:gap-28 lg:max-w-[800px] mx-auto md:h-3/5" style="font-family: 'Noto Serif TC', serif;">
+      
+      <a href="LightDust-characters.html" class="group relative flex flex-col items-center justify-end overflow-hidden rounded-2xl bg-stone-200 dark:bg-gray-800 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 h-[120px] md:h-full">
+        <img src="webpic/Lux_and_Sera.png" alt="Characters" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="z-10 mb-8 px-4  text-center bg-white/20 dark:bg-black/30 backdrop-blur-md rounded-lg">
+          <span class="text-xl md:text-2xl font-bold tracking-widest drop-shadow-[0_0_8px_rgba(0,0,0,0.2)] lang text-stone-800 dark:text-gray-100 group-hover:text-white transition-colors" data-zh="角色" data-en="Characters">角色</span>
+          <div class="h-1 w-0 group-hover:w-full bg-amber-500 dark:bg-indigo-500 transition-all duration-300 mx-auto mt-2"></div>
+        </div>
+      </a>
+
+      <a href="LightDust-world.html" class="group relative flex flex-col items-center justify-end overflow-hidden rounded-2xl bg-stone-300 dark:bg-gray-700 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 h-[120px] md:h-full">
+        <img src="webpic/Concept01sq.png" alt="Characters" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="z-10 mb-8 px-4 text-center bg-white/20 dark:bg-black/30backdrop-blur-md rounded-lg">
+          <span class="text-xl md:text-2xl font-bold tracking-widest drop-shadow-[0_0_8px_rgba(0,0,0,0.2)] lang text-stone-800 dark:text-gray-100 group-hover:text-white transition-colors" data-zh="世界觀" data-en="Worldview">世界觀</span>
+          <div class="h-1 w-0 group-hover:w-full bg-amber-500 dark:bg-indigo-500 transition-all duration-300 mx-auto mt-2"></div>
+        </div>
+      </a>
+
+      <a href="LightDust-gallery.html" class="group relative flex flex-col items-center justify-end overflow-hidden rounded-2xl bg-stone-200 dark:bg-gray-800 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 h-[120px] md:h-full">
+        <img src="webpic/Luxerial1.png" alt="Characters" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="z-10 mb-8 px-4 text-center bg-white/20 dark:bg-black/30 backdrop-blur-md rounded-lg">
+          <span class="text-xl md:text-2xl font-bold tracking-widest drop-shadow-[0_0_8px_rgba(0,0,0,0.2)] lang text-stone-800 dark:text-gray-100 group-hover:text-white transition-colors" data-zh="風格" data-en="Art Style">風格</span>
+          <div class="h-1 w-0 group-hover:w-full bg-amber-500 dark:bg-indigo-500 transition-all duration-300 mx-auto mt-2"></div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+  
+<section class="max-w-7xl mx-auto py-20 px-8 lg:px-20">
+    <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+      
+      <div class="relative w-full lg:w-2/3 aspect-video bg-stone-200 dark:bg-gray-700 rounded-sm overflow-visible">
+        <div class="absolute -top-2 -left-2 w-12 h-12 border-t-8 border-l-8 border-stone-800 dark:border-gray-400"></div>
+        <div class="absolute -bottom-2 -right-2 w-12 h-12 border-b-8 border-r-8 border-stone-800 dark:border-gray-400"></div>
+        
+        <img src="webpic/Concept01.png" alt="Latest Episode" class="w-full h-full object-cover shadow-2xl">
+      </div>
+
+      <div class="w-full lg:w-1/3 flex flex-col text-left">
+        <h2 class="text-4xl md:text-5xl lg:text-3xl font-bold mb-8 tracking-tighter text-stone-800 dark:text-white" style="font-family: 'Noto Serif TC', serif;">
+          <span class="lang" data-zh="進入光與塵的世界..." data-en="Enter the world of Light & Dust...">進入光與塵的世界...</span>
+        </h2>
+        
+        <a href="LightDust-animation.html" class="group relative px-10 py-4 bg-stone-800 dark:bg-gray-900 text-white overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]">
+          <div class="absolute inset-0 
+            bg-gradient-to-r from-transparent via-white/10 to-stone-600 
+            dark:from-transparent dark:via-white/10 dark:to-gray-600 
+            opacity-50">
+          </div>
+          
+          <span class="relative z-10 text-xl font-bold tracking-widest lang" data-zh="點擊前往..." data-en="Click to Play..." style="font-family: 'Noto Serif TC', serif;">
+            點擊前往...
+          </span>
+          
+          <div class="absolute bottom-0 left-0 h-1 w-0 bg-amber-500 dark:bg-indigo-500 transition-all duration-500 group-hover:w-full"></div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-stone-200 dark:bg-slate-900 py-8 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between text-stone-700 dark:text-gray-400">
+      <div>
+        <h4 class="font-bold mb-2 lang" data-zh="光與塵" data-en="Realm of Division">光與塵</h4>
+        <p class="text-sm lang" data-zh="這是一部動畫的官方網站" data-en="This is the official website of the animation">這是一部動畫的官方網站</p>
+      </div>
+      <div>
+        <p class="text-sm">© 2025 光與塵 | Made with ❤️</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ====== 主題切換 ======
+    const themeBtn = document.getElementById("themeToggle");
+    function setTheme(dark) {
+      if (dark) {
+        document.documentElement.classList.add("dark");
+        themeBtn.textContent = "☀️";
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        themeBtn.textContent = "🌙";
+        localStorage.setItem("theme", "light");
+      }
+    }
+    setTheme(localStorage.getItem("theme") === "dark");
+    themeBtn.addEventListener("click", () => {
+      setTheme(!document.documentElement.classList.contains("dark"));
+    });
+
+    // ====== 語言切換 ======
+    const langBtn = document.getElementById("langToggle");
+    function setLang(lang) {
+      if (lang === "zh") {
+        langBtn.textContent = "EN";
+        document.querySelectorAll(".lang").forEach(el => {
+          el.textContent = el.dataset.zh;
+        });
+        document.querySelectorAll(".lang-zh").forEach(el => el.classList.remove("hidden"));
+        document.querySelectorAll(".lang-en").forEach(el => el.classList.add("hidden"));
+        localStorage.setItem("lang", "zh");
+      } else {
+        langBtn.textContent = "中文";
+        document.querySelectorAll(".lang").forEach(el => {
+          el.textContent = el.dataset.en;
+        });
+        document.querySelectorAll(".lang-zh").forEach(el => el.classList.add("hidden"));
+        document.querySelectorAll(".lang-en").forEach(el => el.classList.remove("hidden"));
+        localStorage.setItem("lang", "en");
+      }
+    }
+    setLang(localStorage.getItem("lang") || "zh");
+    langBtn.addEventListener("click", () => {
+      const current = localStorage.getItem("lang") || "zh";
+      setLang(current === "zh" ? "en" : "zh");
+    });
+
+    // ====== 手機版漢堡選單 ======
+    const menuBtn = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
+</body>
+</html>
