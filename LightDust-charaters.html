@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>光與塵 - 官方網站</title>
+  <link rel="icon" type="image/svg+xml" href="webpic/Icon_color.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          // 如果需要更細緻的自定義顏色可以在這裡設定
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
+    }
+
+    /* 微型捲軸樣式 */
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 4px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 10px;
+    }
+    .dark .scrollbar-thin::-webkit-scrollbar-thumb {
+      background: #4b5563;
+    }
+
+    /* 側邊導覽點狀態切換 */
+    .chapter-btn.active span:first-child {
+      background-color: #d97706; /* amber-600 */
+      transform: scale(1.3);
+    }
+    .dark .chapter-btn.active span:first-child {
+      background-color: #6366f1; /* indigo-500 */
+    }
+
+    /* 讓所有內容圖片顯示可放大手勢 */
+    section img {
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+    }
+
+    section img:hover {
+      filter: brightness(1.05);
+    }
+
+    /* 燈箱開啟時禁止背景滾動 */
+    .overflow-hidden {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="bg-white text-stone-900 dark:bg-slate-800 dark:text-stone-100 transition-colors duration-300">
+
+<header class="fixed top-0 w-full z-50 bg-stone-50 dark:bg-gray-900 shadow-md transition-colors duration-300">
+    <nav class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16 md:h-20 lg:h-20">
+      <div class="flex items-center">
+        <a href="LightDust-home.html">
+          <img src="webpic/Logob1.svg" alt="Logo" class="h-14 md:h-16 lg:h-16 block dark:hidden">
+          <img src="webpic/Logocng.svg" alt="Logo" class="h-14 md:h-16 lg:h-16 hidden dark:block">
+        </a>
+      </div>
+
+      <ul class="hidden lg:flex space-x-6">
+        <li><a href="LightDust-home.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang" data-zh="首頁" data-en="Home">首頁</a></li>
+        <li><a href="LightDust-animation.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang" data-zh="動畫" data-en="Animation">動畫</a></li>
+        <li><a href="LightDust-world.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang" data-zh="世界觀" data-en="World">世界觀</a></li>
+        <li><a href="LightDust-characters.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang" data-zh="角色介紹" data-en="Characters">角色介紹</a></li>
+        <li class="relative group">
+          <a href="LightDust-gallery.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang py-4" data-zh="設定集" data-en="Gallery">設定集</a>
+          <div class="absolute left-0 mt-2 w-40 bg-white dark:bg-gray-800 shadow-xl rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-stone-100 dark:border-slate-700">
+            <a href="LightDust-drafts.html" class="block px-4 py-2 text-sm hover:bg-stone-50 dark:hover:bg-slate-700 lang" data-zh="設計草稿" data-en="Drafts">設計草稿</a>
+            <a href="LightDust-modeling.html" class="block px-4 py-2 text-sm hover:bg-stone-50 dark:hover:bg-slate-700 lang" data-zh="模型製作" data-en="3D Modeling">模型製作</a>
+            <a href="LightDust-behindscenes.html" class="block px-4 py-2 text-sm hover:bg-stone-50 dark:hover:bg-slate-700 lang" data-zh="幕後花絮" data-en="Behind Scenes">幕後花絮</a>
+          </div>
+        </li>
+        <li><a href="LightDust-about.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang" data-zh="創作進度" data-en="About">創作進度</a></li>
+      </ul>
+
+      <div class="flex space-x-3 items-center">
+        <button id="langToggle" class="px-2 py-1 rounded text-white transition-colors 
+               bg-amber-600 hover:bg-amber-700 
+               dark:bg-indigo-600 dark:hover:bg-indigo-500">
+          EN
+        </button>
+        
+        <button id="themeToggle" class="px-2 py-1 rounded transition-colors
+               bg-stone-200 hover:bg-stone-300 
+               dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200">
+          ☀️
+        </button>
+
+        <button id="menuToggle" class="lg:hidden px-2 py-1 rounded transition-colors
+               bg-stone-200 hover:bg-stone-300
+               dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200">
+          ☰
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobileMenu" class="hidden lg:hidden px-4 py-2 space-y-2 transition-colors
+         bg-stone-100 dark:bg-slate-900">
+      <a href="testgpt6.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="首頁" data-en="Home">首頁</a>
+      <a href="testgpt6_a.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="動畫" data-en="World">動畫</a>
+      <a href="testgpt6_w.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="世界觀" data-en="World">世界觀</a>
+      <a href="testgpt6_c.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="角色介紹" data-en="Characters">角色介紹</a>
+      <a href="testgpt6_g.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="設定集" data-en="Gallery">設定集</a>
+      <a href="testgpt6_p.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="創作進度" data-en="About">創作進度</a>
+    </div>
+  </header>
+
+
+  <main class="pt-16 md:pt-20">
+    
+  <section class="max-h-screen flex flex-col lg:flex-row items-center justify-center p-8 lg:p-24 gap-12 bg-stone-50 dark:bg-slate-900">
+    <div class="w-full lg:w-1/2 flex flex-col">
+      <h2 class="text-5xl font-bold mb-2 text-amber-600 dark:text-indigo-400">Seraphina</h2>
+      <p class="text-sm text-stone-500 mb-6 tracking-widest uppercase">The Weaver of Light & Order</p>
+      <div class="max-h-[400px] overflow-y-auto pr-4 scrollbar-thin">
+        <p class="text-lg leading-relaxed text-stone-700 dark:text-stone-300">
+          Seraphina 是最初誕生的兩位撒拉弗之一，能同時運用光與塵。她性格理性而內斂，情緒平穩，傾向以光帶來秩序與守護。在早期探索世界的過程中，她自然成為引導者，以治癒與保護維持族群的安定，是象徵光明與穩定的存在。對早期社會秩序及天使族的未來發展產生了深遠影響。
+        </p>
+      </div>
+    </div>
+    <div class="w-full lg:w-1/2">
+      <img src="webpic/Seraphina08.png" alt="Seraphina" class="w-full h-[450px] object-contain rounded-2xl drop-shadow-2xl">
+    </div>
+  </section>
+
+
+    <section class="flex items-center justify-center bg-stone-50 dark:bg-slate-900 p-8 lg:p-24">
+
+      <div class="w-full max-w-4xl">
+        <h3 class="text-3xl font-bold mb-8 text-amber-600 dark:text-indigo-400">
+          角色核心設定
+        </h3>
+
+        <table class="w-full border border-stone-300 dark:border-gray-600 text-left">
+          <tbody class="divide-y divide-stone-300 dark:divide-gray-600">
+            <tr>
+              <th class="w-1/4 p-4 font-semibold bg-stone-100 dark:bg-gray-800">種族</th>
+              <td class="p-4">撒拉弗（Seraph）</td>
+            </tr>
+            <tr>
+              <th class="p-4 font-semibold bg-stone-100 dark:bg-gray-800">核心能力</th>
+              <td class="p-4">光／塵（偏向光）</td>
+            </tr>
+            <tr>
+              <th class="p-4 font-semibold bg-stone-100 dark:bg-gray-800">核心信念</th>
+              <td class="p-4">秩序、穩定、制度</td>
+            </tr>
+            <tr>
+              <th class="p-4 font-semibold bg-stone-100 dark:bg-gray-800">象徵顏色</th>
+              <td class="p-4">白、金、藍</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <section class="flex items-center justify-center bg-stone-50 dark:bg-slate-900 p-8 lg:p-24">
+
+      <div class="w-full max-w-5xl">
+        <h3 class="text-3xl font-bold mb-10 text-amber-600 dark:text-indigo-400">
+          角色成長歷程
+        </h3>
+
+        <div class="overflow-x-auto rounded-xl shadow-lg border border-stone-300 dark:border-slate-700 bg-white dark:bg-slate-800">
+          <table class="w-full text-left border-collapse">
+            <thead class="text-stone-600 dark:text-gray-400 text-sm">
+              <tr class="border-b border-stone-300 dark:border-slate-700">
+                <th class="p-4 font-semibold w-1/6">階段</th>
+                <th class="p-4 font-semibold w-1/4">能力發展</th>
+                <th class="p-4 font-semibold w-1/4">外觀服裝</th>
+                <th class="p-4 font-semibold">心理變化</th>
+              </tr>
+            </thead>
+
+            <tbody class="text-stone-700 dark:text-stone-300">
+
+              <tr class="border-b dark:border-slate-700">
+                <td class="p-4 font-bold text-amber-600 dark:text-indigo-400">
+                  嬰兒期
+                </td>
+                <td class="p-4">未開發</td>
+                <td class="p-4">翅膀本能遮蔽</td>
+                <td class="p-4">天真，象徵純粹與潛能</td>
+              </tr>
+
+              <tr class="border-b dark:border-slate-700 bg-stone-50/60 dark:bg-slate-800/50">
+                <td class="p-4 font-bold text-amber-600 dark:text-indigo-400">
+                  幼年期
+                </td>
+                <td class="p-4">學會收起翅膀、行走</td>
+                <td class="p-4">自然素材、黃花頭飾、赤足</td>
+                <td class="p-4">充滿好奇，從自然中學習</td>
+              </tr>
+
+              <tr class="border-b dark:border-slate-700">
+                <td class="p-4 font-bold text-amber-600 dark:text-indigo-400">
+                  青少年期
+                </td>
+                <td class="p-4">熟練操控光/td>
+                <td class="p-4">長髮、黃白薄紗、金屬花環</td>
+                <td class="p-4">秩序觀建立，領導氣質顯現</td>
+              </tr>
+
+              <tr class="bg-stone-100 dark:bg-slate-700/40">
+                <td class="p-4 font-bold text-amber-700 dark:text-indigo-300">
+                  全盛期
+                </td>
+                <td class="p-4">精進超越、光能成為權威象徵</td>
+                <td class="p-4">盤髮、白金主色、權威光環</td>
+                <td class="p-4">莊嚴保守，承受孤獨與責任壓力</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+
+    <section class=" bg-white dark:bg-slate-800 p-8 lg:p-24">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
+            <img src="webpic/Seraphina02.png" class="rounded-xl shadow-lg lg:max-h-[250px] lg:w-auto object-contain"">
+            <img src="webpic/Seraphina1.png" class="rounded-xl shadow-lg lg:max-h-[250px] lg:w-auto object-contain"">
+            <img src="webpic/Seraphina001.png" class="rounded-xl shadow-lg lg:max-h-[250px] lg:w-auto object-contain"">
+            
+          </div>
+    </section>
+
+    <section class="max-h-screen  flex flex-col lg:flex-row items-center justify-center p-8 lg:p-24 gap-12 bg-white dark:bg-slate-800">
+      <div class="w-full lg:w-1/2 order-2 lg:order-1">
+        <img src="webpic/Luxerial05.png" alt="Luxsariel" class="w-full h-[450px] object-contain rounded-2xl drop-shadow-2xl">
+      </div>
+      <div class="w-full lg:w-1/2 order-1 lg:order-2 flex flex-col">
+        <h2 class="text-5xl font-bold mb-2 text-amber-600 dark:text-indigo-400">Luxsariel</h2>
+        <p class="text-sm text-stone-500 mb-6 tracking-widest uppercase">The Alchemist of Dust & Change</p>
+        <div class="max-h-[400px] overflow-y-auto pr-4 scrollbar-thin">
+          <p class="text-lg leading-relaxed text-stone-700 dark:text-stone-300">
+            Luxsariel 是最初誕生的兩位撒拉弗之一，能同時運用光與塵。他性格活潑好奇，對未知充滿探索慾望，喜歡挑戰現有規範，傾向以塵創造與改造世界。在早期探索與建設的過程中，他積極嘗試新方法與技術，推動變化與進步，對惡魔族的文化發展與創造力培養產生了深遠影響。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="flex items-center justify-center bg-stone-50 dark:bg-slate-900 p-8 lg:p-24">
+
+      <div class="w-full max-w-4xl">
+        <h3 class="text-3xl font-bold mb-8 text-amber-600 dark:text-indigo-400">
+          角色核心設定
+        </h3>
+
+        <table class="w-full border border-stone-300 dark:border-gray-600 text-left">
+          <tbody class="divide-y divide-stone-300 dark:divide-gray-600">
+            <tr>
+              <th class="w-1/4 p-4 font-semibold bg-stone-100 dark:bg-gray-800">種族</th>
+              <td class="p-4">撒拉弗（Seraph）</td>
+            </tr>
+            <tr>
+              <th class="p-4 font-semibold bg-stone-100 dark:bg-gray-800">核心能力</th>
+              <td class="p-4">光／塵（偏向塵）</td>
+            </tr>
+            <tr>
+              <th class="p-4 font-semibold bg-stone-100 dark:bg-gray-800">核心信念</th>
+              <td class="p-4">創造、變化、危險</td>
+            </tr>
+            <tr>
+              <th class="p-4 font-semibold bg-stone-100 dark:bg-gray-800">象徵顏色</th>
+              <td class="p-4">灰、紫、銀、紅</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <section class="flex items-center justify-center bg-stone-50 dark:bg-slate-900 p-8 lg:p-24">
+
+      <div class="w-full max-w-5xl">
+        <h3 class="text-3xl font-bold mb-10 text-amber-600 dark:text-indigo-400">
+          角色成長歷程
+        </h3>
+
+        <div class="overflow-x-auto rounded-xl shadow-lg border border-stone-300 dark:border-slate-700 bg-white dark:bg-slate-800">
+          <table class="w-full text-left border-collapse">
+            <thead class="text-stone-600 dark:text-gray-400 text-sm">
+              <tr class="border-b border-stone-300 dark:border-slate-700">
+                <th class="p-4 font-semibold w-1/6">階段</th>
+                <th class="p-4 font-semibold w-1/4">能力發展</th>
+                <th class="p-4 font-semibold w-1/4">外觀服裝</th>
+                <th class="p-4 font-semibold">心理變化</th>
+              </tr>
+            </thead>
+
+            <tbody class="text-stone-700 dark:text-stone-300">
+
+              <tr class="border-b dark:border-slate-700">
+                <td class="p-4 font-bold text-amber-600 dark:text-indigo-400">
+                  嬰兒期
+                </td>
+                <td class="p-4">未開發</td>
+                <td class="p-4">翅膀本能遮蔽</td>
+                <td class="p-4">天真、象徵無限可能與混沌</td>
+              </tr>
+
+              <tr class="border-b dark:border-slate-700 bg-stone-50/60 dark:bg-slate-800/50">
+                <td class="p-4 font-bold text-amber-600 dark:text-indigo-400">
+                  幼年期
+                </td>
+                <td class="p-4">學會收起翅膀、行走、學習用塵創造簡單物品</td>
+                <td class="p-4">單色衣物、取材於自然，頭髮凌亂、赤足</td>
+                <td class="p-4">充滿好奇、從自然中學習、依賴Seraphina</td>
+              </tr>
+
+              <tr class="border-b dark:border-slate-700">
+                <td class="p-4 font-bold text-amber-600 dark:text-indigo-400">
+                  青少年期
+                </td>
+                <td class="p-4">熟練使用塵</td>
+                <td class="p-4">短髮後梳、灰紫與淡黃調衣物、佩戴銀飾</td>
+                <td class="p-4">展現自我，責任感萌芽</td>
+              </tr>
+
+              <tr class="bg-stone-100 dark:bg-slate-700/40">
+                <td class="p-4 font-bold text-amber-700 dark:text-indigo-300">
+                  全盛期
+                </td>
+                <td class="p-4">精進超越、操控塵的形態轉換</td>
+                <td class="p-4">頭髮翹起、隨興、黑紫紅主色、面罩、長角</td>
+                <td class="p-4">煉金術士領導者形象、執著於創造與進化、偏執</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+
+    <section class="max-h-screen bg-white dark:bg-slate-800 p-8 lg:p-24">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
+            <img src="webpic/Luxerial.png" class="rounded-xl shadow-lg lg:max-h-[250px] lg:w-auto object-contain">
+            <img src="webpic/Luxerial_3D.png" class="rounded-xl shadow-lg lg:max-h-[250px] lg:w-auto object-contain">
+            <img src="webpic/Luxerial1.png" class="rounded-xl shadow-lg lg:max-h-[250px] lg:w-auto object-contain">
+          </div>
+    </section>
+    
+  </main>
+
+  <div id="image-lightbox" class="fixed inset-0 z-[100] hidden bg-black/90 flex items-center justify-center cursor-zoom-out transition-opacity duration-300 opacity-0">
+    <img id="lightbox-img" src="" alt="放大圖" class="max-w-[90%] max-h-[90%] object-contain rounded-lg shadow-2xl transition-transform duration-300 scale-90">
+    <button class="absolute top-8 right-8 text-white text-4xl hover:text-amber-500">&times;</button>
+  </div>
+
+  <footer class="bg-stone-200 dark:bg-slate-900 py-8 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between text-stone-700 dark:text-gray-400">
+      <div>
+        <h4 class="font-bold mb-2 lang" data-zh="光與塵" data-en="Realm of Division">光與塵</h4>
+        <p class="text-sm lang" data-zh="這是一部動畫的官方網站" data-en="This is the official website of the animation">這是一部動畫的官方網站</p>
+      </div>
+      <div>
+        <p class="text-sm">© 2025 光與塵 | Made with ❤️</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightbox = document.getElementById('image-lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const images = document.querySelectorAll('section img');
+
+      // 開啟燈箱
+      images.forEach(img => {
+        img.addEventListener('click', () => {
+          const src = img.getAttribute('src');
+          lightboxImg.src = src;
+          
+          // 顯示燈箱並加入動畫
+          lightbox.classList.remove('hidden');
+          setTimeout(() => {
+            lightbox.classList.remove('opacity-0');
+            lightboxImg.classList.remove('scale-90');
+          }, 10);
+          
+          document.body.classList.add('overflow-hidden');
+        });
+      });
+
+      // 關閉燈箱功能
+      const closeLightbox = () => {
+        lightbox.classList.add('opacity-0');
+        lightboxImg.classList.add('scale-90');
+        
+        setTimeout(() => {
+          lightbox.classList.add('hidden');
+          document.body.classList.remove('overflow-hidden');
+        }, 300);
+      };
+
+      lightbox.addEventListener('click', closeLightbox);
+    });
+
+    // ====== 主題切換 ======
+    const themeBtn = document.getElementById("themeToggle");
+    function setTheme(dark) {
+      if (dark) {
+        document.documentElement.classList.add("dark");
+        themeBtn.textContent = "☀️";
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        themeBtn.textContent = "🌙";
+        localStorage.setItem("theme", "light");
+      }
+    }
+    setTheme(localStorage.getItem("theme") === "dark");
+    themeBtn.addEventListener("click", () => {
+      setTheme(!document.documentElement.classList.contains("dark"));
+    });
+
+    // ====== 語言切換 ======
+    const langBtn = document.getElementById("langToggle");
+    function setLang(lang) {
+      if (lang === "zh") {
+        langBtn.textContent = "EN";
+        document.querySelectorAll(".lang").forEach(el => {
+          el.textContent = el.dataset.zh;
+        });
+        document.querySelectorAll(".lang-zh").forEach(el => el.classList.remove("hidden"));
+        document.querySelectorAll(".lang-en").forEach(el => el.classList.add("hidden"));
+        localStorage.setItem("lang", "zh");
+      } else {
+        langBtn.textContent = "中文";
+        document.querySelectorAll(".lang").forEach(el => {
+          el.textContent = el.dataset.en;
+        });
+        document.querySelectorAll(".lang-zh").forEach(el => el.classList.add("hidden"));
+        document.querySelectorAll(".lang-en").forEach(el => el.classList.remove("hidden"));
+        localStorage.setItem("lang", "en");
+      }
+    }
+    setLang(localStorage.getItem("lang") || "zh");
+    langBtn.addEventListener("click", () => {
+      const current = localStorage.getItem("lang") || "zh";
+      setLang(current === "zh" ? "en" : "zh");
+    });
+
+    // ====== 手機版漢堡選單 ======
+    const menuBtn = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
+</body>
+</html>

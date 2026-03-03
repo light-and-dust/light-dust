@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>光與塵 - 官方網站</title>
+  <link rel="icon" type="image/svg+xml" href="webpic/Icon_color.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          // 如果需要更細緻的自定義顏色可以在這裡設定
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
+    }
+
+    /* 微型捲軸樣式 */
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 4px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 10px;
+    }
+    .dark .scrollbar-thin::-webkit-scrollbar-thumb {
+      background: #4b5563;
+    }
+
+    /* 側邊導覽點狀態切換 */
+    .chapter-btn.active span:first-child {
+      background-color: #d97706; /* amber-600 */
+      transform: scale(1.3);
+    }
+    .dark .chapter-btn.active span:first-child {
+      background-color: #6366f1; /* indigo-500 */
+    }
+
+    /* 讓所有內容圖片顯示可放大手勢 */
+    section img {
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+    }
+
+    section img:hover {
+      filter: brightness(1.05);
+    }
+
+    /* 燈箱開啟時禁止背景滾動 */
+    .overflow-hidden {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="bg-white text-stone-900 dark:bg-slate-800 dark:text-stone-100 transition-colors duration-300">
+
+<header class="fixed top-0 w-full z-50 bg-stone-50 dark:bg-gray-900 shadow-md transition-colors duration-300">
+    <nav class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16 md:h-20 lg:h-20">
+      <div class="flex items-center">
+        <a href="LightDust-home.html">
+          <img src="webpic/Logob1.svg" alt="Logo" class="h-14 md:h-16 lg:h-16 block dark:hidden">
+          <img src="webpic/Logocng.svg" alt="Logo" class="h-14 md:h-16 lg:h-16 hidden dark:block">
+        </a>
+      </div>
+
+      <ul class="hidden lg:flex space-x-6">
+        <li><a href="LightDust-home.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang" data-zh="首頁" data-en="Home">首頁</a></li>
+        <li><a href="LightDust-animation.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang" data-zh="動畫" data-en="Animation">動畫</a></li>
+        <li><a href="LightDust-world.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang" data-zh="世界觀" data-en="World">世界觀</a></li>
+        <li><a href="LightDust-characters.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang" data-zh="角色介紹" data-en="Characters">角色介紹</a></li>
+        <li class="relative group">
+          <a href="LightDust-gallery.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang py-4" data-zh="設定集" data-en="Gallery">設定集</a>
+          <div class="absolute left-0 mt-2 w-40 bg-white dark:bg-gray-800 shadow-xl rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-stone-100 dark:border-slate-700">
+            <a href="LightDust-drafts.html" class="block px-4 py-2 text-sm hover:bg-stone-50 dark:hover:bg-slate-700 lang" data-zh="設計草稿" data-en="Drafts">設計草稿</a>
+            <a href="LightDust-modeling.html" class="block px-4 py-2 text-sm hover:bg-stone-50 dark:hover:bg-slate-700 lang" data-zh="模型製作" data-en="3D Modeling">模型製作</a>
+            <a href="LightDust-behindscenes.html" class="block px-4 py-2 text-sm hover:bg-stone-50 dark:hover:bg-slate-700 lang" data-zh="幕後花絮" data-en="Behind Scenes">幕後花絮</a>
+          </div>
+        </li>
+        <li><a href="LightDust-about.html" class="hover:text-amber-600 dark:hover:text-indigo-400 transition-colors lang" data-zh="創作進度" data-en="About">創作進度</a></li>
+      </ul>
+
+      <div class="flex space-x-3 items-center">
+        <button id="langToggle" class="px-2 py-1 rounded text-white transition-colors 
+               bg-amber-600 hover:bg-amber-700 
+               dark:bg-indigo-600 dark:hover:bg-indigo-500">
+          EN
+        </button>
+        
+        <button id="themeToggle" class="px-2 py-1 rounded transition-colors
+               bg-stone-200 hover:bg-stone-300 
+               dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200">
+          ☀️
+        </button>
+
+        <button id="menuToggle" class="lg:hidden px-2 py-1 rounded transition-colors
+               bg-stone-200 hover:bg-stone-300
+               dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200">
+          ☰
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobileMenu" class="hidden lg:hidden px-4 py-2 space-y-2 transition-colors
+         bg-stone-100 dark:bg-slate-900">
+      <a href="testgpt6.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="首頁" data-en="Home">首頁</a>
+      <a href="testgpt6_a.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="動畫" data-en="World">動畫</a>
+      <a href="testgpt6_w.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="世界觀" data-en="World">世界觀</a>
+      <a href="testgpt6_c.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="角色介紹" data-en="Characters">角色介紹</a>
+      <a href="testgpt6_g.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="設定集" data-en="Gallery">設定集</a>
+      <a href="testgpt6_p.html" class="block lang hover:text-amber-600 dark:hover:text-indigo-400" data-zh="創作進度" data-en="About">創作進度</a>
+    </div>
+  </header>
+
+
+  <main class="pt-16 md:pt-20">
+    
+    <section class="min-h-screen flex flex-col lg:flex-row items-center justify-center p-8 lg:p-24 gap-12 bg-white dark:bg-slate-800">
+      <div class="w-full lg:w-1/2 order-2 lg:order-1">
+        <img src="webpic/Concept01.png" alt="根源能量" class="w-full h-[400px] object-cover rounded-2xl shadow-xl">
+      </div>
+      <div class="w-full lg:w-1/2 order-1 lg:order-2 flex flex-col">
+        <h2 class="text-4xl font-bold mb-6 text-amber-600 dark:text-indigo-400 lang" data-zh="根源能量" data-en="Primal Energy">根源能量</h2>
+        <div class="max-h-[300px] overflow-y-auto pr-4 scrollbar-thin">
+          <p class="text-lg leading-relaxed lang" data-zh="根源能量是世界誕生之初產生的能量。根源能量分為光與塵兩種。光的能量使世界穩定，有秩序的運行。塵的能量帶來變化，創造出無數的差異性，讓世界更多樣化。" data-en="Description about Primal Energy...">根源能量是世界誕生之初產生的能量。根源能量分為光與塵兩種。光的能量使世界穩定，有秩序的運行。塵的能量帶來變化，創造出無數的差異性，讓世界更多樣化。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="min-h-screen flex flex-col lg:flex-row items-center justify-center p-8 lg:p-24 gap-12 bg-stone-50 dark:bg-slate-900">
+      <div class="w-full lg:w-1/2 flex flex-col">
+        <h2 class="text-4xl font-bold mb-6 text-amber-600 dark:text-indigo-400 lang" data-zh="世界" data-en="The World">世界</h2>
+        <div class="max-h-[400px] overflow-y-auto pr-4 scrollbar-thin">
+          <p class="text-lg leading-relaxed lang" data-zh="宇宙誕生之初，無數懸浮物質在虛空撞擊、旋轉。在漫長的旋轉中，一個環狀的地塊撞擊旋轉過程中逐漸形成。環形地塊不斷旋轉，吸引著周圍的物質，這些物質有些落入地表，成為陸地的一部分，有一些懸浮於空中，形成早期的大氣。在這片環形大地的中央，根源能量與其他物質一同被擠壓、沉澱，形成了核心。核心噴發的光與塵碎片成為了最初的天使與惡魔。但在天使與惡魔長年的能量爭奪後，枯竭的核心讓地貌發生了永久性的改變。如今的世界被巨大的虛空裂隙一分為二，北方土地因地層斷裂而破碎，南方地殼則大幅下沉，並長年被灰霧壟罩。" data-en="Description about the world view...">宇宙誕生之初，無數懸浮物質在虛空撞擊、旋轉。在漫長的旋轉中，一個環狀的地塊撞擊旋轉過程中逐漸形成。環形地塊不斷旋轉，吸引著周圍的物質，這些物質有些落入地表，成為陸地的一部分，有一些懸浮於空中，形成早期的大氣。在這片環形大地的中央，根源能量與其他物質一同被擠壓、沉澱，形成了核心。核心噴發的光與塵碎片成為了最初的天使與惡魔。但在天使與惡魔長年的能量爭奪後，枯竭的核心讓地貌發生了永久性的改變。如今的世界被巨大的虛空裂隙一分為二，北方土地因地層斷裂而破碎，南方地殼則大幅下沉，並長年被灰霧壟罩。</p>
+        </div>
+      </div>
+      <div class="w-full lg:w-1/2">
+        <img src="webpic/Concept01.png" alt="世界" class="w-full h-[400px] object-cover rounded-2xl shadow-xl">
+      </div>
+    </section>
+
+    <section class="min-h-screen flex flex-col lg:flex-row items-center justify-center p-8 lg:p-24 gap-12 bg-white dark:bg-slate-800">
+      <div class="w-full lg:w-1/2 order-2 lg:order-1">
+        <img src="webpic/Seraphina002.png" alt="核心" class="w-full h-[400px] object-cover rounded-2xl shadow-xl">
+      </div>
+      <div class="w-full lg:w-1/2 order-1 lg:order-2 flex flex-col">
+        <h2 class="text-4xl font-bold mb-6 text-amber-600 dark:text-indigo-400 lang" data-zh="核心" data-en="The Core">核心</h2>
+        <div class="max-h-[300px] overflow-y-auto pr-4 scrollbar-thin">
+          <p class="text-lg leading-relaxed lang" data-zh="在地塊成形之初，根源能量與其他物質被吸向地塊中央。不斷的碰撞擠壓讓地塊中央出現了一個菱狀核心。核心中，光與塵結合的地方形成了能量礦。核心越堆越大，固化前噴出的光與塵碎片落到土地上，形成了初代的天使與惡魔。" data-en="About the Core mechanism...">在地塊成形之初，根源能量與其他物質被吸向地塊中央。不斷的碰撞擠壓讓地塊中央出現了一個菱狀核心。核心中，光與塵結合的地方形成了能量礦。核心越堆越大，固化前噴出的光與塵碎片落到土地上，形成了初代的天使與惡魔。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="min-h-screen flex flex-col lg:flex-row items-center justify-center p-8 lg:p-24 gap-12 bg-stone-50 dark:bg-slate-900">
+      <div class="w-full lg:w-1/2 flex flex-col">
+        <h2 class="text-4xl font-bold mb-6 text-amber-600 dark:text-indigo-400 lang" data-zh="撒拉弗" data-en="Seraph">撒拉弗</h2>
+        <div class="max-h-[400px] overflow-y-auto pr-4 scrollbar-thin">
+          <p class="text-lg leading-relaxed lang" data-zh="撒拉弗: 世界成形之初，由最穩定的能量，凝結而成的完整生命形態。撒拉弗擁有六片翅膀，能同時運用光與塵能量。壽命較長，並且有強大的法力。至今世界只有Seraphina和Luxsariel兩位撒拉弗。" data-en="Seraph lore...">撒拉弗: 世界成形之初，由最穩定的能量，凝結而成的完整生命形態。撒拉弗擁有六片翅膀，能同時運用光與塵能量。壽命較長，並且有強大的法力。至今世界只有Seraphina和Luxsariel兩位撒拉弗。</p>
+        </div>
+      </div>
+      <div class="w-full lg:w-1/2">
+        <img src="webpic/Lux_and_Sera.png" alt="撒拉弗" class="w-full h-[500px] object-contain">
+      </div>
+    </section>
+
+    <section class="min-h-screen flex flex-col lg:flex-row items-center justify-center p-8 lg:p-24 gap-12 bg-white dark:bg-slate-800">
+      <div class="w-full lg:w-1/2 flex flex-col">
+        <h2 class="text-4xl font-bold mb-6 text-amber-600 dark:text-indigo-400 lang" data-zh="天使" data-en="Angel">天使</h2>
+        <div class="max-h-[400px] overflow-y-auto pr-4 scrollbar-thin">
+          <p class="text-lg leading-relaxed lang" data-zh="光之力量所孕育的天使族，源自核心外層光能凝聚而成。能使用光的魔法。擁有灰色的皮膚、白、金、藍等淺色調的髮色。整體呈現冷靜、純淨及明亮的氣質。天使族在性格上普遍偏向守序、保守，重視制度與秩序。他們擅長運用光能進行照明與治療。於天使族而言，維持世界的穩定性比追求變化更為重要，這一價值觀深深地影響了他們的文化與生活方式。" data-en="Angel lore...">光之力量所孕育的天使族，源自核心外層光能凝聚而成。能使用光的魔法。擁有灰色的皮膚、白、金、藍等淺色調的髮色。整體呈現冷靜、純淨及明亮的氣質。天使族在性格上普遍偏向守序、保守，重視制度與秩序。他們擅長運用光能進行照明與治療。於天使族而言，維持世界的穩定性比追求變化更為重要，這一價值觀深深地影響了他們的文化與生活方式。</p>
+        </div>
+      </div>
+      <div class="w-full lg:w-1/2">
+        <img src="webpic/angel_ch.png" alt="天使" class="w-full h-[500px] object-contain lang-zh">
+        <img src="webpic/angel_en.png" alt="天使" class="w-full h-[500px] object-contain hidden lang-en">
+      </div>
+    </section>
+
+    <section class="min-h-screen flex flex-col lg:flex-row items-center justify-center p-8 lg:p-24 gap-12 bg-stone-50 dark:bg-slate-900">
+      <div class="w-full lg:w-1/2 flex flex-col">
+        <h2 class="text-4xl font-bold mb-6 text-amber-600 dark:text-indigo-400 lang" data-zh="惡魔" data-en="Demon">惡魔</h2>
+        <div class="max-h-[400px] overflow-y-auto pr-4 scrollbar-thin">
+          <p class="text-lg leading-relaxed lang" data-zh="由塵能碎片凝聚而生。能使用塵的魔法。擁有白色的皮膚、黑、紫、紅等深色調的髮色，並且天生有角。惡魔族的性格普遍不受拘束，傾向追求自由、創造與突破。他們擅長運用塵來進行創造與加工，喜歡有彈性且多樣的生活方式，對規範束縛感到牴觸。" data-en="Demon lore...">由塵能碎片凝聚而生。能使用塵的魔法。擁有白色的皮膚、黑、紫、紅等深色調的髮色，並且天生有角。惡魔族的性格普遍不受拘束，傾向追求自由、創造與突破。他們擅長運用塵來進行創造與加工，喜歡有彈性且多樣的生活方式，對規範束縛感到牴觸。</p>
+        </div>
+      </div>
+      <div class="w-full lg:w-1/2">
+        <img src="webpic/devil_ch.png" alt="惡魔" class="w-full h-[500px] object-contain lang-zh">
+        <img src="webpic/devil_en.png" alt="惡魔" class="w-full h-[500px] object-contain hidden lang-en">
+      </div>
+    </section>
+
+    <section id="story-section" class="relative max-h-screen flex items-center bg-white dark:bg-slate-800 py-16">
+      <div class="absolute left-8 lg:left-20 top-1/2 -translate-y-1/2 z-10">
+        <div class="relative flex flex-col space-y-8 before:content-[''] before:absolute before:left-2 before:top-0 before:w-0.5 before:h-full before:bg-stone-300 dark:before:bg-gray-600">
+          <button onclick="switchChapter(1)" class="chapter-btn active relative flex items-center group">
+            <span class="w-4 h-4 rounded-full bg-amber-600 dark:bg-indigo-500 z-10 border-4 border-white dark:border-slate-800 transition-transform hover:scale-125"></span>
+            <span class="ml-4 text-sm font-bold opacity-70 group-hover:opacity-100 transition-opacity">第一章</span>
+          </button>
+          <button onclick="switchChapter(2)" class="chapter-btn relative flex items-center group">
+            <span class="w-4 h-4 rounded-full bg-stone-300 dark:bg-gray-600 z-10 border-4 border-white dark:border-slate-800 transition-transform hover:scale-125"></span>
+            <span class="ml-4 text-sm font-bold opacity-70 group-hover:opacity-100 transition-opacity">第二章</span>
+          </button>
+          <button onclick="switchChapter(3)" class="chapter-btn relative flex items-center group">
+            <span class="w-4 h-4 rounded-full bg-stone-300 dark:bg-gray-600 z-10 border-4 border-white dark:border-slate-800 transition-transform hover:scale-125"></span>
+            <span class="ml-4 text-sm font-bold opacity-70 group-hover:opacity-100 transition-opacity">第三章</span>
+          </button>
+          <button onclick="switchChapter(4)" class="chapter-btn relative flex items-center group">
+            <span class="w-4 h-4 rounded-full bg-stone-300 dark:bg-gray-600 z-10 border-4 border-white dark:border-slate-800 transition-transform hover:scale-125"></span>
+            <span class="ml-4 text-sm font-bold opacity-70 group-hover:opacity-100 transition-opacity">第四章</span>
+          </button>
+          <button onclick="switchChapter(5)" class="chapter-btn relative flex items-center group">
+            <span class="w-4 h-4 rounded-full bg-stone-300 dark:bg-gray-600 z-10 border-4 border-white dark:border-slate-800 transition-transform hover:scale-125"></span>
+            <span class="ml-4 text-sm font-bold opacity-70 group-hover:opacity-100 transition-opacity">第五章</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="w-full max-w-4xl mx-auto px-10 text-center ">
+        <div id="chapter-content" class="transition-all duration-300">
+          <h3 id="chap-title" class="text-3xl font-bold mb-4 text-amber-600 dark:text-indigo-400">第一章</h3>
+          <div class="max-h-[400px] overflow-y-auto px-4 scrollbar-thin">
+            <p id="chap-desc" class="text-base leading-relaxed ">
+              在這片還未完全成形的環狀土地上，光和塵的能量在核心形成的過程中不斷碰撞、沉積，產生了大量碎裂的光與塵顆粒。其中有兩股最穩定、也最接近完整生命形態的能量，在核心外圍逐漸聚集，最終凝結成兩個擁有六翼的生命——Seraphina與Luxsariel。他們在同一個時間形成，如同雙胞胎一般，自誕生後便一直一起探索自己的能力與這片正在成型的世界。<br>Seraphina性格穩重，比較冷靜，也較能保持情緒的平衡。Luxsariel的情緒波動相對明顯，喜歡嘗試新事物，也常常提出一些創新的想法。兩人雖然同時擁有光與塵的能量，但Seraphina更常使用光，而Luxsariel更常使用塵。即便兩人有不同的喜好與行事方式，他們的互補讓關係更加密切。<br>隨著核心逐漸穩定，光與塵的沉積物與能量礦開始產生更明顯的分層現象。在這段時間裡，核心有時會在擠壓與震盪過程中釋放出小片的光或塵，這些碎片落到地表後便逐漸成形，最終化成人形，成為最初的天使和惡魔。這些第一代生命在地面上建立簡單的聚落，而Seraphina和Luxsariel也開始引導他們學習光與塵的力量。<br>兩位撒拉弗在世界形成的最初階段，基本上肩負著指引者的角色。他們教導天使如何運用光進行照明與治療，也協助惡魔理解塵的變化特性與創造能力。隨著居住聚落逐漸擴大，這片土地開始呈現出更明確的生活軌跡。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="image-lightbox" class="fixed inset-0 z-[100] hidden bg-black/90 flex items-center justify-center cursor-zoom-out transition-opacity duration-300 opacity-0">
+    <img id="lightbox-img" src="" alt="放大圖" class="max-w-[90%] max-h-[90%] object-contain rounded-lg shadow-2xl transition-transform duration-300 scale-90">
+    <button class="absolute top-8 right-8 text-white text-4xl hover:text-amber-500">&times;</button>
+  </div>
+
+  <footer class="bg-stone-200 dark:bg-slate-900 py-8 mt-12">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between text-stone-700 dark:text-gray-400">
+      <div>
+        <h4 class="font-bold mb-2 lang" data-zh="光與塵" data-en="Realm of Division">光與塵</h4>
+        <p class="text-sm lang" data-zh="這是一部動畫的官方網站" data-en="This is the official website of the animation">這是一部動畫的官方網站</p>
+      </div>
+      <div>
+        <p class="text-sm">© 2025 光與塵 | Made with ❤️</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 章節數據
+    const chapters = {
+      1: { title: "第一章", desc: "在這片還未完全成形的環狀土地上，光和塵的能量在核心形成的過程中不斷碰撞、沉積，產生了大量碎裂的光與塵顆粒。其中有兩股最穩定、也最接近完整生命形態的能量，在核心外圍逐漸聚集，最終凝結成兩個擁有六翼的生命——Seraphina與Luxsariel。他們在同一個時間形成，如同雙胞胎一般，自誕生後便一直一起探索自己的能力與這片正在成型的世界。<br>Seraphina性格穩重，比較冷靜，也較能保持情緒的平衡。Luxsariel的情緒波動相對明顯，喜歡嘗試新事物，也常常提出一些創新的想法。兩人雖然同時擁有光與塵的能量，但Seraphina更常使用光，而Luxsariel更常使用塵。即便兩人有不同的喜好與行事方式，他們的互補讓關係更加密切。<br>隨著核心逐漸穩定，光與塵的沉積物與能量礦開始產生更明顯的分層現象。在這段時間裡，核心有時會在擠壓與震盪過程中釋放出小片的光或塵，這些碎片落到地表後便逐漸成形，最終化成人形，成為最初的天使和惡魔。這些第一代生命在地面上建立簡單的聚落，而Seraphina和Luxsariel也開始引導他們學習光與塵的力量。<br>兩位撒拉弗在世界形成的最初階段，基本上肩負著指引者的角色。他們教導天使如何運用光進行照明與治療，也協助惡魔理解塵的變化特性與創造能力。隨著居住聚落逐漸擴大，這片土地開始呈現出更明確的生活軌跡。" },
+      2: { title: "第二章", desc: "隨著第一代天使與惡魔陸續由核心釋出的光與塵碎片落地後成形，他們開始在地表建立最初的聚落。<br>天使使用光，惡魔使用塵，在Seraphina和Luxsariel的帶領下，這個小型社會快速發展，從最初石頭堆砌的小屋，逐漸改為茅草與木材結合的房舍，然後又發展出以木造與塵加工材料建成的專門建築。水源處理、道路與日常設施也隨著需求被完善。<br>在這段引導過程中，Seraphina逐漸意識到自己更傾向運用光來維持安全與穩定，她也較在意聚落的秩序與規範。Luxsariel則與惡魔較為契合，他常與惡魔一起研究塵在創造上的可能性，並投入能量礦的技術開發。在兩人各自投入不同領域的同時，他們仍會保持合作，並共同制定初期的生活規範。<br>在50年間，天使與惡魔的人數逐步增加，雖然兩族仍能生活在同一區域中，但天使與惡魔在價值觀、生活方式與使用能量的習慣上差異逐漸變得明顯。" },
+      3: { title: "第三章", desc: "隨著天使與惡魔的聚落持續擴張，兩族在生活方式上的差異逐漸明顯。天使偏好使用光來維持秩序，他們在建築、工作與日常行為上逐步形成固定流程，並開始以光記錄各項規範。惡魔則更加依賴塵的創造特性，新的工具與材料經常在他們的聚落中出現，生活方式比天使更具彈性與變動性。<br>在技術擴展的過程中，天使與惡魔對彼此產生了越來越強烈的負面感受。天使無法接受惡魔在使用塵時常造成意外或混亂，他們覺得惡魔並未意識到危險；惡魔則認為天使的規範越來越多，許多限制並無必要，只會阻礙他們的研究與發展。<br>這些差異最終影響到兩族的合作模式。雖然表面上仍維持共居，但天使與惡魔的生活區域逐漸分開，各自按照自己的方式進行建造、管理與研究。Seraphina和Luxsariel仍持續進行協調，但隨著族群差異擴大，他們所能介入的範圍也越來越有限。<br>在此期間，天使與惡魔對領地和管理方式的討論變得頻繁，其中包含如何使用核心產出的能量礦、如何制定共同規範，以及是否需要建立跨族群的協議制度。雖然Seraphina與Luxsariel都希望維持共存，但兩族的價值觀差距已逐漸讓這些討論無法達成一致。<br>最終，為了避免衝突持續惡化，天使與惡魔決定分開發展。天使選擇與偏好使用光的Seraphina一起留在原本的城市，建立光明且守序的——Nehara。惡魔則跟隨擅長運用塵的Luxsariel往南方遷移，在較開闊且可自由開發的地區建立聚落——Avak。<br>兩族的分離也意味著光與塵的力量不再在同一地區相互平衡，而是開始分別向不同方向發展。<br>Seraphina與Luxsariel仍保持聯繫，並偶爾討論兩族的情況，但兩人在各自族群中的責任越來越重，也更加專注於各自的發展。雖然表面上仍維持合作，但兩人之間的交流已不如以往頻繁。<br>天使與惡魔的選擇，讓這片土地第一次出現了清楚的南北界線，而天使與惡魔的分化也正式成形。" },
+      4: { title: "第四章", desc: "天使與惡魔分別在北方與南方建立新的聚落後，兩個社會的發展速度明顯加快。<br>Nehara以光為主要能量來源，城市規劃明確，天使逐漸建立屬於自己的管理體系，包括區域分工、光能分配與基礎安全制度。<br>Avak依靠塵與能量礦的研究取得多項技術突破，惡魔社群在工具、建材與魔法的應用上持續進步，也更樂於嘗試各種新的開發方式。<br>兩族在分開後仍維持最初的協議，會不定期交換資訊，但這些交流的內容逐漸變得不再能互相理解。天使認為惡魔過度依賴塵的變化，可能帶來失控的問題；惡魔則覺得天使的光法規範過多，阻礙發展。兩個社會的距離在日常觀念上越拉越遠。<br>Seraphina與Luxsariel仍會偶爾討論天使與惡魔的情況，也會試著尋找共通點，但他們在各自的領地中所看到的問題已經不同。Seraphina關注的是秩序、安全與長期穩定；Luxsariel思考的是突破、創造與新可能性。<br>兩人的立場開始難以相互說服。<br>隨著兩族的人數增加、領土擴張與資源需求上升，光與塵的力量逐漸呈現競爭。天使擔心惡魔在使用塵的過程中造成無法預測的變化，而惡魔對天使越來越多的光法限制感到疲憊。小規模的摩擦在邊界地帶發生得更頻繁。<br>在天使與惡魔的緊張情勢升高期間，Luxsariel開始思考如何證明光與塵可以形成新的平衡。他希望能用實際成果改變Seraphina的看法。<br>在與惡魔的研究合作下，他投入更多精力在塵的應用，包含再生、調整能量結構與修復受損身體等方向。<br>某一天，一名年輕天使因為迷路並在途中受傷，意外穿過邊界來到Avak附近。惡魔巡邏隊發現他時，他的狀況不太穩定，能量流動也不正常。他們將他送到Luxsariel那裡，希望由他判斷治療方式。<br>Luxsariel得知後立即將他帶回自己的實驗室，嘗試以塵進行緊急治療。<br>治療的效果比預期更明顯，天使的傷勢迅速改善，也出現了部分能量提升的現象。這項結果讓Luxsariel看到了新方向。他認為這種改變或許能成為光與塵重新合作的起點，因此持續觀察並調整治療方式。<br>隨著時間推移，這位天使的身體出現多項變化，包括能量流動方式、皮膚與髮絲的顏色，Luxsariel投入研究的時間越來越長，他隱瞞了這件事，也未向Seraphina通報實驗過程。<br>不久之後，Seraphina按照既定安排前往Avak進行例行交流。她抵達後與Luxsariel討論兩座城市的情況，也對近期能量礦的產量交換資訊。這段談話原本十分順利，但不久後，一名惡魔突然敲門，語氣緊張地要Luxsariel立即前往某處處理問題。<br>Luxsariel先離開房間，門在他身後關上。<br>Seraphina獨自留在室內時，隔壁的一扇小門被推開，然後又立刻往更深處跑去。Seraphina在看到天使的狀態後立刻跟上。<br>穿過小門後，她進入了一個設備完整的實驗室。<br>房間中央的治療台上擺放著多層塵能量的監測器材，而那名天使正縮在角落，身體局部變成反應異常的半光半塵狀態，皮膚顏色不均，能量流動不穩。<br>Seraphina在理解實驗內容後立刻感到震驚，<br>Luxsariel在處理完外面狀況後回來，看到Seraphina與天使同處一室，知道自己的實驗已經被她知道了。<br>Luxsariel試圖向她解釋研究成果與可能性，但Seraphina無法接受這種以生命當作實驗材料的方式。Seraphina指出這樣的治療方式可能造成不可逆的改變，她質問為何不事先告知與討論。Luxsariel強調自己沒有傷害天使，他相信這些變化可能是有益的，對未來的研究與能量理解能帶來突破。他認為應該把結果視為進展，而不是風險。<br>兩人都沒有讓步。<br>他們對能量的理解方式不同，也對未來的方向有完全不同的想法。<br>這場衝突讓兩人的關係出現明顯裂痕，而Nehara與Avak之間的關係也在這天開始變得更加難以調和。" },
+      5: { title: "第五章", desc: "天使與惡魔長年的競爭使核心逐漸枯竭。<br>核心中原本穩定的光、塵與沉積物的結構開始鬆動，能量礦的含量也因持續開採而快速下降。<br>當核心的運作變得不穩定時，大地首先出現的跡象是表層能量流動的延遲，接著是地層震動，再來是大片土地的崩裂與沉降。<br>無論是Nehara或Avak，都在這段時間面臨同樣的問題。<br>光法陣偶爾無法完整啟動，塵的反應也逐漸降低。<br>城市間的循環系統開始失效，植物的能量吸收量減弱，建築基礎受到缺乏能量支撐而產生裂縫。<br>兩座城市都進入了修補、加固與節能的階段，但核心衰退的幅度已經超出任何調整能逆轉的範圍。<br>在這種無法避免的崩壞前，Seraphina與Luxsariel再次相遇。<br>兩人站在核心外層的深裂地帶，看著光與塵的循環變得斷斷續續。<br>他們清楚理解，世界已經承受不了過去幾百年的拉扯。<br>這次相遇沒有爭執。<br>兩人回望曾經走過的道路，知道各自堅持的方向都有偏差。<br>光的規範過度集中於控制，塵的追求過度集中於突破；<br>當兩種力量都被自己的方向牽動到極限時，核心承受了最終的壓力。<br>在確認核心的狀態後，他們討論過能採取的方式。<br>沒有任何一種做法能同時維持世界與兩族的正常運作，唯一能使核心恢復的途徑，是讓光與塵重新回到最原始的狀態。<br>兩人理解這意味著什麼，也知道這是他們在世界剛形成時曾經立下的承諾。<br>於是他們站在核心中央的裂縫前，讓自己的力量逐步釋入正在崩散的核心結構。<br>光開始填補外層不穩定的斷面，塵重新推動沉積物與能量礦的流向。<br>光與塵的回流逐漸穩定核心的運作，使其重新具備維持世界的能力。<br>隨著能量不斷被核心吸收，Seraphina與Luxsariel的形體逐漸變得透明。<br>直到最後，他們完全融入核心，使核心重新運作，讓世界免於崩毀。<br>大地因此恢復平衡，但外在的傷痕仍明顯存在。<br>光與塵的循環雖然重新建立，崩裂的土地卻沒有復原。<br>南方的地殼因能量流失過快而大幅沉降，大片土地龜裂、乾枯，被灰霧長期覆蓋。<br>沉降造成的落差使南方向下墜落形成低層世界，與北方之間出現巨大的虛空裂隙。<br>北方的土地也沒有保持原狀。<br>地表因裂開而分成許多大小不同的區塊，原本相鄰的城市之間被深層裂隙分隔。<br>各地之間需要重新建立通道，而能量循環則因地形改變而重新分配。<br>天使與惡魔在那一天同時失去了他們的守護者。<br>光與塵的運作恢復正常，但世界已經變成新的模樣。<br>這片土地仍然分裂，只是從爭執造成的分裂，轉為地貌形成的分隔。" }
+    };
+
+    function switchChapter(idx) {
+      const titleEl = document.getElementById('chap-title');
+      const descEl = document.getElementById('chap-desc');
+      const btns = document.querySelectorAll('.chapter-btn');
+
+      // 淡入淡出效果
+      document.getElementById('chapter-content').style.opacity = 0;
+      
+      setTimeout(() => {
+        titleEl.textContent = chapters[idx].title;
+        descEl.innerHTML = chapters[idx].desc;
+        document.getElementById('chapter-content').style.opacity = 1;
+        
+        // 更新按鈕狀態
+        btns.forEach((btn, i) => {
+          const dot = btn.querySelector('span:first-child');
+          if (i + 1 === idx) {
+            btn.classList.add('active');
+            dot.classList.replace('bg-stone-300', 'bg-amber-600');
+            dot.classList.replace('dark:bg-gray-600', 'dark:bg-indigo-500');
+          } else {
+            btn.classList.remove('active');
+            dot.classList.replace('bg-amber-600', 'bg-stone-300');
+            dot.classList.replace('dark:bg-indigo-500', 'dark:bg-gray-600');
+          }
+        });
+      }, 300);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightbox = document.getElementById('image-lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const images = document.querySelectorAll('section img');
+
+      // 開啟燈箱
+      images.forEach(img => {
+        img.addEventListener('click', () => {
+          const src = img.getAttribute('src');
+          lightboxImg.src = src;
+          
+          // 顯示燈箱並加入動畫
+          lightbox.classList.remove('hidden');
+          setTimeout(() => {
+            lightbox.classList.remove('opacity-0');
+            lightboxImg.classList.remove('scale-90');
+          }, 10);
+          
+          document.body.classList.add('overflow-hidden');
+        });
+      });
+
+      // 關閉燈箱功能
+      const closeLightbox = () => {
+        lightbox.classList.add('opacity-0');
+        lightboxImg.classList.add('scale-90');
+        
+        setTimeout(() => {
+          lightbox.classList.add('hidden');
+          document.body.classList.remove('overflow-hidden');
+        }, 300);
+      };
+
+      lightbox.addEventListener('click', closeLightbox);
+    });
+
+    // ====== 主題切換 ======
+    const themeBtn = document.getElementById("themeToggle");
+    function setTheme(dark) {
+      if (dark) {
+        document.documentElement.classList.add("dark");
+        themeBtn.textContent = "☀️";
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        themeBtn.textContent = "🌙";
+        localStorage.setItem("theme", "light");
+      }
+    }
+    setTheme(localStorage.getItem("theme") === "dark");
+    themeBtn.addEventListener("click", () => {
+      setTheme(!document.documentElement.classList.contains("dark"));
+    });
+
+    // ====== 語言切換 ======
+    const langBtn = document.getElementById("langToggle");
+    function setLang(lang) {
+      if (lang === "zh") {
+        langBtn.textContent = "EN";
+        document.querySelectorAll(".lang").forEach(el => {
+          el.textContent = el.dataset.zh;
+        });
+        document.querySelectorAll(".lang-zh").forEach(el => el.classList.remove("hidden"));
+        document.querySelectorAll(".lang-en").forEach(el => el.classList.add("hidden"));
+        localStorage.setItem("lang", "zh");
+      } else {
+        langBtn.textContent = "中文";
+        document.querySelectorAll(".lang").forEach(el => {
+          el.textContent = el.dataset.en;
+        });
+        document.querySelectorAll(".lang-zh").forEach(el => el.classList.add("hidden"));
+        document.querySelectorAll(".lang-en").forEach(el => el.classList.remove("hidden"));
+        localStorage.setItem("lang", "en");
+      }
+    }
+    setLang(localStorage.getItem("lang") || "zh");
+    langBtn.addEventListener("click", () => {
+      const current = localStorage.getItem("lang") || "zh";
+      setLang(current === "zh" ? "en" : "zh");
+    });
+
+    // ====== 手機版漢堡選單 ======
+    const menuBtn = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
+</body>
+</html>
