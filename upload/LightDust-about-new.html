@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>光與塵 - 作者介紹</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-stone-900 dark:bg-mauve-800 dark:text-zinc-100 transition-colors duration-300">
+  <header class="fixed top-0 w-full z-50 bg-stone-50 dark:bg-taupe-900 shadow-md transition-colors duration-300">
+      <nav class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16 md:h-20 lg:h-20">
+        <div class="flex items-center">
+          <a href="LightDust-home-new.html">
+            <img src="webpic/Logo_gold.svg" alt="Logo" class="h-14 md:h-16 lg:h-16 block dark:hidden">
+            <img src="webpic/Logo_bronze.svg" alt="Logo" class="h-14 md:h-16 lg:h-16 hidden dark:block">
+          </a>
+        </div>
+
+        <ul class="hidden lg:flex space-x-6">
+          <li><a href="LightDust-home-new.html" class="hover:text-amber-600 dark:hover:text-purple-400 transition-colors lang" data-zh="首頁" data-en="Home">首頁</a></li>
+          <li><a href="LightDust-animation-new.html" class="hover:text-amber-600 dark:hover:text-purple-400 transition-colors lang" data-zh="動畫" data-en="Animation">動畫</a></li>
+          <li><a href="LightDust-world-new.html" class="hover:text-amber-600 dark:hover:text-purple-400 transition-colors lang" data-zh="世界觀" data-en="World">世界觀</a></li>
+          <li><a href="LightDust-characters-new.html" class="hover:text-amber-600 dark:hover:text-purple-400 transition-colors lang" data-zh="角色介紹" data-en="Characters">角色介紹</a></li>
+          <li class="relative group">
+            <a href="LightDust-gallery-new.html" class="hover:text-amber-600 dark:hover:text-purple-400 transition-colors lang py-4" data-zh="設定集" data-en="Gallery">設定集</a>
+            <div class="absolute left-0 mt-2 w-40 bg-white dark:bg-zinc-800 shadow-xl rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-stone-100 dark:border-mauve-700">
+              <a href="LightDust-drafts.html" class="block px-4 py-2 text-sm hover:bg-stone-50 dark:hover:bg-mauve-700 lang" data-zh="設計草稿" data-en="Drafts">設計草稿</a>
+              <a href="LightDust-modeling.html" class="block px-4 py-2 text-sm hover:bg-stone-50 dark:hover:bg-mauve-700 lang" data-zh="模型製作" data-en="3D Modeling">模型製作</a>
+              <a href="LightDust-behindscenes.html" class="block px-4 py-2 text-sm hover:bg-stone-50 dark:hover:bg-mauve-700 lang" data-zh="幕後花絮" data-en="Behind Scenes">幕後花絮</a>
+            </div>
+          </li>
+          <li><a href="LightDust-about-new.html" class="hover:text-amber-600 dark:hover:text-purple-400 transition-colors lang" data-zh="關於我們" data-en="About us">關於我們</a></li>
+        </ul>
+
+        <div class="flex space-x-3 items-center">
+          <button id="langToggle" class="px-2 py-1 rounded text-white transition-colors 
+                bg-amber-600 hover:bg-amber-700 
+                dark:bg-purple-600 dark:hover:bg-purple-500">
+            EN
+          </button>
+          
+          <button id="themeToggle" class="px-2 py-1 rounded transition-colors
+                bg-stone-200 hover:bg-stone-300 
+                dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:text-zinc-200">
+            ☀️
+          </button>
+
+          <button id="menuToggle" class="lg:hidden px-2 py-1 rounded transition-colors
+                bg-stone-200 hover:bg-stone-300
+                dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:text-zinc-200">
+            ☰
+          </button>
+        </div>
+      </nav>
+
+      <div id="mobileMenu" class="hidden lg:hidden px-4 py-2 space-y-2 transition-colors
+          bg-stone-100 dark:bg-mauve-900">
+        <a href="LightDust-home-new.html" class="block lang hover:text-amber-600 dark:hover:text-purple-400" data-zh="首頁" data-en="Home">首頁</a>
+        <a href="LightDust-animation-new.html" class="block lang hover:text-amber-600 dark:hover:text-purple-400" data-zh="動畫" data-en="Animation">動畫</a>
+        <a href="LightDust-world-new.html" class="block lang hover:text-amber-600 dark:hover:text-purple-400" data-zh="世界觀" data-en="World">世界觀</a>
+        <a href="LightDust-characters-new.html" class="block lang hover:text-amber-600 dark:hover:text-purple-400" data-zh="角色介紹" data-en="Characters">角色介紹</a>
+        <a href="LightDust-gallery-new.html" class="block lang hover:text-amber-600 dark:hover:text-purple-400" data-zh="設定集" data-en="Gallery">設定集</a>
+        <a href="LightDust-about-new.html" class="block lang hover:text-amber-600 dark:hover:text-purple-400" data-zh="關於我們" data-en="About us">關於我們</a>
+      </div>
+  </header>
+
+  <section class="max-w-6xl mx-auto px-6 py-28 md:py-36">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-stone-900 dark:text-zinc-100 tracking-widest" style="font-family: 'Noto Serif TC', serif;">
+        <span class="lang" data-zh="作者介紹" data-en="Our Team">作者介紹</span>
+      </h2>
+      <p class="text-stone-500 dark:text-zinc-400 mt-2 text-sm uppercase tracking-wider">Our Team</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center mb-16 bg-stone-50 dark:bg-taupe-900 p-8 md:p-10 rounded-2xl shadow-sm border border-stone-100 dark:border-white/5 transition-colors duration-300">
+      
+      <div class="md:col-span-1 flex justify-center">
+        <img src="webpic/creater1.png" alt="董聿欣" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-2xl shadow-lg border border-stone-200 dark:border-white/10 aspect-square">
+      </div>
+
+      <div class="md:col-span-2 space-y-4">
+        <h3 class="text-sm text-amber-600 dark:text-purple-400 font-bold tracking-widest uppercase">A1111336</h3>
+        <h2 class="text-3xl font-bold text-stone-900 dark:text-zinc-100" style="font-family: 'Noto Serif TC', serif;">
+          董聿欣 <span class="text-sm font-normal text-stone-500 dark:text-zinc-400 block md:inline mt-2 md:mt-0 md:ml-4">(劇本 / 分鏡 / 動畫與特效 / 模型製作)</span>
+        </h2>
+        <span class="inline-block bg-stone-200 dark:bg-zinc-700 text-stone-700 dark:text-zinc-300 px-4 py-1 rounded-full text-sm">Script & Animation Production</span>
+
+        <div class="bg-white/50 dark:bg-zinc-900/40 p-6 rounded-r-xl border-l-4 border-amber-600 dark:border-purple-600 text-stone-700 dark:text-zinc-300 leading-relaxed text-sm md:text-base">
+          <div class="lang-zh space-y-4">
+            <div>
+              <strong>分工內容：</strong><br>
+              前期專注於劇情腳本、企劃書撰寫、分鏡繪製，並負責人物與場景設計。動畫製作階段負責人物、場景與物件的建置與運鏡；後期包辦特效、後製調整、剪接、音效及音樂剪接，並主要負責模型列印作業。
+            </div>
+            <div>
+              <strong>寄語：</strong><br>
+              「Light&Dust動畫見證主角們從理念分歧到和解的旅程，希望大家能喜歡我們的動畫短片。」
+            </div>
+          </div>
+          
+          <div class="lang-en hidden space-y-4">
+            <div>
+              <strong>Responsibilities:</strong><br>
+              In the early stages, focused on scriptwriting, proposal writing, storyboard drawing, and the design of characters and scenes. During the animation stage, responsible for building and framing characters, scenes, and objects. Later, handled VFX, post-production, editing, sound, and music editing, as well as 3D model printing.
+            </div>
+            <div>
+              <strong>Reflection:</strong><br>
+              "Through the interplay of light and dust, witness the protagonists' journey from ideological divergence to reconciliation. We hope you enjoy our animated short film.."
+            </div>
+          </div>
+        </div>
+<!-- 
+        <a href="https://drchao.nuk.edu.tw/~a1111336/homework2/Homework2.html" target="_blank" class="inline-flex items-center text-amber-600 dark:text-purple-400 hover:text-amber-700 dark:hover:text-purple-300 font-bold group mt-2 transition-colors duration-300">
+          <span class="lang" data-zh="前往看作者介紹網頁" data-en="View Author Website">前往看作者介紹網頁</span>
+          <i class="fa-solid fa-chevron-right ml-2 text-xs group-hover:translate-x-1 transition-transform"></i>
+        </a> -->
+      </div>
+    </div>
+
+    <hr class="my-16 border-stone-200 dark:border-white/5 opacity-50">
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center bg-stone-50 dark:bg-taupe-900 p-8 md:p-10 rounded-2xl shadow-sm border border-stone-100 dark:border-white/5 transition-colors duration-300">
+      
+      <div class="md:col-span-2 space-y-4 order-2 md:order-1">
+        <h3 class="text-sm text-amber-600 dark:text-purple-400 font-bold tracking-widest uppercase">A1111313</h3>
+        <h2 class="text-3xl font-bold text-stone-900 dark:text-zinc-100" style="font-family: 'Noto Serif TC', serif;">
+          鍾昀霓 <span class="text-sm font-normal text-stone-500 dark:text-zinc-400 block md:inline mt-2 md:mt-0 md:ml-4">(文本企劃與網站架設 / 展示規劃)</span>
+        </h2>
+        <span class="inline-block bg-stone-200 dark:bg-zinc-700 text-stone-700 dark:text-zinc-300 px-4 py-1 rounded-full text-sm">Project Planning & Exhibition Strategy</span>
+
+        <div class="bg-white/50 dark:bg-zinc-900/40 p-6 rounded-r-xl border-l-4 border-amber-600 dark:border-purple-600 text-stone-700 dark:text-zinc-300 leading-relaxed text-sm md:text-base">
+          <div class="lang-zh space-y-4">
+            <div>
+              <strong>分工內容：</strong><br>
+              負責文本編修與企劃書整合。美術前期參與場景草圖繪製，並協助場景與物件的模型製作。重心著重於動畫製作之外的事項，包括平面周邊印製、網站架設以及整體展示規劃。
+            </div>
+            <div>
+              <strong>寄語：</strong><br>
+              「在現代價值的衝突與碰撞中，尋找重新理解彼此的契機，希望大家能喜歡我們的故事與展出。」
+            </div>
+          </div>
+          
+          <div class="lang-en hidden space-y-4">
+            <div>
+              <strong>Responsibilities:</strong><br>
+              Responsible for text editing and proposal integration. Participated in scene sketching during the early art phase and assisted with scene and object models. Focused mainly on non-animation tasks, including printed peripheral materials, website development, and exhibition planning.
+            </div>
+            <div>
+              <strong>Reflection:</strong><br>
+              "Amid the conflicts and collisions of modern values, we seek the opportunity to understand each other anew. We hope you enjoy our story and exhibition."
+            </div>
+          </div>
+        </div>
+<!--
+        <a href="https://drchao.nuk.edu.tw/~a1111313/homework2/Homework2.html" target="_blank" class="inline-flex items-center text-amber-600 dark:text-purple-400 hover:text-amber-700 dark:hover:text-purple-300 font-bold group mt-2 transition-colors duration-300">
+          <span class="lang" data-zh="前往看作者介紹網頁" data-en="View Author Website">前往看作者介紹網頁</span>
+          <i class="fa-solid fa-chevron-right ml-2 text-xs group-hover:translate-x-1 transition-transform"></i>
+        </a> -->
+      </div>
+
+      <div class="md:col-span-1 flex justify-center order-1 md:order-2">
+        <img src="webpic/creater2.png" alt="鍾昀霓" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-2xl shadow-lg border border-stone-200 dark:border-white/10 aspect-square">
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-stone-200 dark:bg-mauve-900 py-12 mt-auto transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-stone-700 dark:text-zinc-300 space-y-6 md:space-y-0">
+      <div class="text-center md:text-left">
+        <h4 class="font-bold mb-2 lang" data-zh="《光與塵》" data-en="Light and Dust">《光與塵》</h4>
+        <p class="text-sm lang" data-zh="這是一部動畫的官方網站" data-en="This is the official website of the animation">這是一部動畫的官方網站</p>
+      </div>
+      <div class="text-center md:text-right text-sm space-y-1">
+        <div class="contact-info space-x-2">
+          <span><i class="fa-solid fa-phone"></i> 07-591-9000</span>
+          <span><i class="fa-solid fa-envelope"></i> mail@nuk.edu.tw</span>
+        </div>
+        <div class="mt-1">
+          <i class="fa-solid fa-location-dot"></i> 811 高雄市楠梓區高雄大學路700號
+        </div>
+        <div class="copyright text-secondary mt-2 text-xs text-stone-500 dark:text-zinc-500">
+          Copyright © 2026 《光與塵》. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ====== 主題切換 ======
+    const themeBtn = document.getElementById("themeToggle");
+    function setTheme(dark) {
+      if (dark) {
+        document.documentElement.classList.add("dark");
+        themeBtn.textContent = "☀️";
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        themeBtn.textContent = "🌙";
+        localStorage.setItem("theme", "light");
+      }
+    }
+    setTheme(localStorage.getItem("theme") === "dark");
+    themeBtn.addEventListener("click", () => {
+      setTheme(!document.documentElement.classList.contains("dark"));
+    });
+
+    // ====== 語言切換 ======
+    const langBtn = document.getElementById("langToggle");
+    function setLang(lang) {
+      if (lang === "zh") {
+        langBtn.textContent = "EN";
+        document.querySelectorAll(".lang").forEach(el => {
+          el.textContent = el.dataset.zh;
+        });
+        document.querySelectorAll(".lang-zh").forEach(el => el.classList.remove("hidden"));
+        document.querySelectorAll(".lang-en").forEach(el => el.classList.add("hidden"));
+        localStorage.setItem("lang", "zh");
+      } else {
+        langBtn.textContent = "中文";
+        document.querySelectorAll(".lang").forEach(el => {
+          el.textContent = el.dataset.en;
+        });
+        document.querySelectorAll(".lang-zh").forEach(el => el.classList.add("hidden"));
+        document.querySelectorAll(".lang-en").forEach(el => el.classList.remove("hidden"));
+        localStorage.setItem("lang", "en");
+      }
+    }
+    setLang(localStorage.getItem("lang") || "zh");
+    langBtn.addEventListener("click", () => {
+      const current = localStorage.getItem("lang") || "zh";
+      setLang(current === "zh" ? "en" : "zh");
+    });
+
+    // ====== 手機版漢堡選單 ======
+    const menuBtn = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
+</body>
+</html>
