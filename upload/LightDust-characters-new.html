@@ -104,7 +104,7 @@
       <div id="mobileMenu" class="hidden lg:hidden px-4 py-2 space-y-2 transition-colors
           bg-stone-100 dark:bg-mauve-900">
         <a href="LightDust-home-new.html" class="block lang hover:text-amber-600 dark:hover:text-violet-300" data-zh="首頁" data-en="Home">首頁</a>
-        <a href="LightDust-animation-new.html" class="block lang hover:text-amber-600 dark:hover:text-violet-300" data-zh="動畫" data-en="World">動畫</a>
+        <a href="LightDust-animation-new.html" class="block lang hover:text-amber-600 dark:hover:text-violet-300" data-zh="動畫" data-en="Animation">動畫</a>
         <a href="LightDust-world-new.html" class="block lang hover:text-amber-600 dark:hover:text-violet-300" data-zh="世界觀" data-en="World">世界觀</a>
         <a href="LightDust-characters-new.html" class="block lang hover:text-amber-600 dark:hover:text-violet-300" data-zh="角色介紹" data-en="Characters">角色介紹</a>
         <a href="LightDust-gallery-new.html" class="block lang hover:text-amber-600 dark:hover:text-violet-300" data-zh="設定集" data-en="Gallery">設定集</a>
@@ -114,18 +114,20 @@
 
   <main class="pt-16 md:pt-20">
     
-  <section class="max-h-screen flex flex-col lg:flex-row items-center justify-center p-8 lg:p-24 gap-12 bg-white dark:bg-mauve-800">
+  <section class="min-h-screen lg:max-h-screen flex flex-col lg:flex-row items-center justify-center p-6 md:p-12 lg:p-24 gap-8 lg:gap-12 bg-white dark:bg-mauve-800 py-16 lg:py-24">
     <div class="w-full lg:w-1/2 flex flex-col">
       <h2 class="text-5xl font-bold mb-2 text-amber-600 dark:text-purple-300">Seraphina</h2>
       <p class="text-sm text-stone-500 mb-6 tracking-widest uppercase">The Weaver of Light & Order</p>
       <div class="max-h-[400px] overflow-y-auto pr-4 scrollbar-thin">
-        <p class="text-lg leading-relaxed text-stone-700 dark:text-zinc-300">
+        <p class="text-lg leading-relaxed text-stone-700 dark:text-zinc-300 lang" 
+   data-zh="Seraphina 是最初誕生的兩位撒拉弗之一，能同時運用光與塵。她性格理性而內斂，情緒平穩，傾向以光帶來秩序與守護。在早期探索世界的過程中，她自然成為引導者，以治癒與保護維持族群的安定，是象徵光明與穩定的存在。對早期社會秩序及天使族的未來發展產生了深遠影響。" 
+   data-en="Seraphina is one of the first two Seraphim, capable of wielding both Light and Dust. Rational, introverted, and emotionally stable, she inclines toward using Light to bring order and protection. During the early exploration of the world, she naturally became a guide, maintaining the stability of her kin through healing and protection, embodying light and stability. She has had a profound impact on the early social order and the future development of the Angel race.">
           Seraphina 是最初誕生的兩位撒拉弗之一，能同時運用光與塵。她性格理性而內斂，情緒平穩，傾向以光帶來秩序與守護。在早期探索世界的過程中，她自然成為引導者，以治癒與保護維持族群的安定，是象徵光明與穩定的存在。對早期社會秩序及天使族的未來發展產生了深遠影響。
         </p>
       </div>
     </div>
-    <div class="w-full lg:w-1/2">
-      <img src="webpic/Seraphina08.png" alt="Seraphina" class="w-full h-[450px] object-contain rounded-2xl drop-shadow-2xl">
+    <div class="w-full lg:w-1/2 flex justify-center">
+      <img src="webpic/Seraphina08.png" alt="Seraphina" class="w-auto max-h-[300px] md:max-h-[400px] lg:max-h-[500px] lg:w-full object-contain rounded-2xl drop-shadow-2xl">
     </div>
   </section>
 
@@ -133,27 +135,28 @@
     <section class="flex items-center justify-center bg-stone-50 dark:bg-mauve-900 p-8 lg:p-24">
 
       <div class="w-full max-w-4xl">
-        <h3 class="text-3xl font-bold mb-8 text-amber-600 dark:text-violet-300">
+        <h3 class="text-3xl font-bold mb-8 text-amber-600 dark:text-violet-300 lang"
+            data-zh="角色核心設定" data-en="Core Character Settings">
           角色核心設定
         </h3>
 
         <table class="w-full border border-stone-300 dark:border-zinc-600 text-left">
           <tbody class="divide-y divide-stone-300 dark:divide-zinc-600">
             <tr>
-              <th class="w-1/4 p-4 font-semibold bg-stone-100 dark:bg-zinc-800">種族</th>
-              <td class="p-4">撒拉弗（Seraph）</td>
+              <th class="w-1/4 p-4 font-semibold bg-stone-100 dark:bg-zinc-800 lang" data-zh="種族" data-en="Race">種族</th>
+              <td class="p-4 lang" data-zh="撒拉弗（Seraph）" data-en="Seraph">撒拉弗（Seraph）</td>
             </tr>
             <tr>
-              <th class="p-4 font-semibold bg-stone-100 dark:bg-zinc-800">核心能力</th>
-              <td class="p-4">光／塵（偏向光）</td>
+              <th class="p-4 font-semibold bg-stone-100 dark:bg-zinc-800 lang" data-zh="核心能力" data-en="Core Abilities">核心能力</th>
+              <td class="p-4 lang" data-zh="光／塵（偏向光）" data-en="Light / Dust (Affinity for Light)">光／塵（偏向光）</td>
             </tr>
             <tr>
-              <th class="p-4 font-semibold bg-stone-100 dark:bg-zinc-800">核心信念</th>
-              <td class="p-4">秩序、穩定、制度</td>
+              <th class="p-4 font-semibold bg-stone-100 dark:bg-zinc-800 lang" data-zh="核心信念" data-en="Core Beliefs">核心信念</th>
+              <td class="p-4 lang" data-zh="秩序、穩定、制度" data-en="Order, Stability, Institutions">秩序、穩定、制度</td>
             </tr>
             <tr>
-              <th class="p-4 font-semibold bg-stone-100 dark:bg-zinc-800">象徵顏色</th>
-              <td class="p-4">白、金、藍</td>
+              <th class="p-4 font-semibold bg-stone-100 dark:bg-zinc-800 lang" data-zh="象徵顏色" data-en="Symbolic Colors">象徵顏色</th>
+              <td class="p-4 lang" data-zh="白、金、藍" data-en="White, Gold, Blue">白、金、藍</td>
             </tr>
           </tbody>
         </table>
@@ -164,57 +167,58 @@
     <section class="flex items-center justify-center bg-stone-50 dark:bg-mauve-900 p-8 lg:p-24">
 
       <div class="w-full max-w-5xl">
-        <h3 class="text-3xl font-bold mb-10 text-amber-600 dark:text-violet-300">
+        <h3 class="text-3xl font-bold mb-10 text-amber-600 dark:text-violet-300 lang"
+            data-zh="角色成長歷程" data-en="Character Growth Timeline">
           角色成長歷程
         </h3>
 
         <div class="overflow-x-auto rounded-xl shadow-lg border border-stone-300 dark:border-mauve-700 bg-white dark:bg-mauve-800">
           <table class="w-full text-left border-collapse">
-            <thead class="text-stone-600 dark:text-zinc-400 text-sm">
+            <thead class="text-stone-600 dark:text-zinc-400 text-sm bg-stone-100 dark:bg-mauve-900/50">
               <tr class="border-b border-stone-300 dark:border-mauve-700">
-                <th class="p-4 font-semibold w-1/6">階段</th>
-                <th class="p-4 font-semibold w-1/4">能力發展</th>
-                <th class="p-4 font-semibold w-1/4">外觀服裝</th>
-                <th class="p-4 font-semibold">心理變化</th>
+                <th class="p-4 font-semibold min-w-[100px] lang" data-zh="階段" data-en="Stage">階段</th>
+                <th class="p-4 font-semibold min-w-[200px] lang" data-zh="能力發展" data-en="Ability Development">能力發展</th>
+                <th class="p-4 font-semibold min-w-[200px] lang" data-zh="外觀服裝" data-en="Appearance & Attire">外觀服裝</th>
+                <th class="p-4 font-semibold min-w-[250px] lang" data-zh="心理變化" data-en="Psychological Changes">心理變化</th>
               </tr>
             </thead>
 
             <tbody class="text-stone-700 dark:text-zinc-300">
 
               <tr class="border-b dark:border-mauve-700">
-                <td class="p-4 font-bold text-amber-600 dark:text-violet-300">
+                <td class="p-4 font-bold text-amber-600 dark:text-violet-300 lang" data-zh="嬰兒期" data-en="Infancy">
                   嬰兒期
                 </td>
-                <td class="p-4">未開發</td>
-                <td class="p-4">翅膀本能遮蔽</td>
-                <td class="p-4">天真，象徵純粹與潛能</td>
+                <td class="p-4 lang" data-zh="未開發" data-en="Undeveloped">未開發</td>
+                <td class="p-4 lang" data-zh="翅膀本能遮蔽" data-en="Wings instinctively shielding">翅膀本能遮蔽</td>
+                <td class="p-4 lang" data-zh="天真，象徵純粹與潛能" data-en="Innocent, symbolizing purity and potential">天真，象徵純粹與潛能</td>
               </tr>
 
               <tr class="border-b dark:border-mauve-700 bg-stone-50/60 dark:bg-mauve-800/50">
-                <td class="p-4 font-bold text-amber-600 dark:text-violet-300">
+                <td class="p-4 font-bold text-amber-600 dark:text-violet-300 lang" data-zh="幼年期" data-en="Childhood">
                   幼年期
                 </td>
-                <td class="p-4">學會收起翅膀、行走</td>
-                <td class="p-4">自然素材、黃花頭飾、赤足</td>
-                <td class="p-4">充滿好奇，從自然中學習</td>
+                <td class="p-4 lang" data-zh="學會收起翅膀、行走" data-en="Learned to retract wings and walk">學會收起翅膀、行走</td>
+                <td class="p-4 lang" data-zh="自然素材、黃花頭飾、赤足" data-en="Natural materials, yellow flower headdress, barefoot">自然素材、黃花頭飾、赤足</td>
+                <td class="p-4 lang" data-zh="充滿好奇，從自然中學習" data-en="Full of curiosity, learning from nature">充滿好奇，從自然中學習</td>
               </tr>
 
               <tr class="border-b dark:border-mauve-700">
-                <td class="p-4 font-bold text-amber-600 dark:text-violet-300">
+                <td class="p-4 font-bold text-amber-600 dark:text-violet-300 lang" data-zh="青少年期" data-en="Adolescence">
                   青少年期
                 </td>
-                <td class="p-4">熟練操控光</td>
-                <td class="p-4">長髮、黃白薄紗、金屬花環</td>
-                <td class="p-4">秩序觀建立，領導氣質顯現</td>
+                <td class="p-4 lang" data-zh="熟練操控光" data-en="Proficient in manipulating Light">熟練操控光</td>
+                <td class="p-4 lang" data-zh="長髮、黃白薄紗、金屬花環" data-en="Long hair, yellow & white tulle, metallic wreath">長髮、黃白薄紗、金屬花環</td>
+                <td class="p-4 lang" data-zh="秩序觀建立，領導氣質顯現" data-en="Sense of order established, leadership traits emerge">秩序觀建立，領導氣質顯現</td>
               </tr>
 
               <tr class="bg-stone-100 dark:bg-mauve-700/40">
-                <td class="p-4 font-bold text-amber-700 dark:text-violet-200">
+                <td class="p-4 font-bold text-amber-700 dark:text-violet-200 lang" data-zh="全盛期" data-en="Prime / Zenith">
                   全盛期
                 </td>
-                <td class="p-4">精進超越、光能成為權威象徵</td>
-                <td class="p-4">盤髮、白金主色、權威光環</td>
-                <td class="p-4">莊嚴保守，承受孤獨與責任壓力</td>
+                <td class="p-4 lang" data-zh="精進超越、光能成為權威象徵" data-en="Transcendent mastery; Light becomes a symbol of authority">精進超越、光能成為權威象徵</td>
+                <td class="p-4 lang" data-zh="盤髮、白金主色、權威光環" data-en="Updo hair, platinum dominant palette, authoritative halo">盤髮、白金主色、權威光環</td>
+                <td class="p-4 lang" data-zh="莊嚴保守，承受孤獨與責任壓力" data-en="Solemn and conservative, bearing the weight of loneliness and duty">莊嚴保守，承受孤獨與責任壓力</td>
               </tr>
 
             </tbody>
@@ -227,22 +231,24 @@
 
     <section class=" bg-stone-50 dark:bg-mauve-900 p-8 lg:p-24">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
-            <img src="webpic/Seraphina02.png" class="rounded-xl shadow-lg lg:max-h-[250px] lg:w-auto object-contain"">
-            <img src="webpic/seraphina1.png" class="rounded-xl shadow-lg lg:max-h-[250px] lg:w-auto object-contain"">
-            <img src="webpic/Seraphina001.png" class="rounded-xl shadow-lg lg:max-h-[250px] lg:w-auto object-contain"">
+            <img src="webpic/Seraphina02.png" class="rounded-xl shadow-lg lg:max-h-[250px] lg:w-auto object-contain">
+            <img src="webpic/seraphina1.png" class="rounded-xl shadow-lg lg:max-h-[250px] lg:w-auto object-contain">
+            <img src="webpic/Seraphina001.png" class="rounded-xl shadow-lg lg:max-h-[250px] lg:w-auto object-contain">
             
           </div>
     </section>
 
-    <section class="max-h-screen  flex flex-col lg:flex-row items-center justify-center p-8 lg:p-24 gap-12 bg-white dark:bg-mauve-800">
-      <div class="w-full lg:w-1/2 order-2 lg:order-1">
-        <img src="webpic/Luxerial05.png" alt="Luxsariel" class="w-full h-[450px] object-contain rounded-2xl drop-shadow-2xl">
+    <section class="min-h-screen lg:max-h-screen flex flex-col lg:flex-row items-center justify-center p-6 md:p-12 lg:p-24 gap-8 lg:gap-12 bg-white dark:bg-mauve-800 py-16 lg:py-24">
+      <div class="w-full lg:w-1/2 order-2 lg:order-1 flex justify-center">
+        <img src="webpic/Luxerial05.png" alt="Luxsariel" class="w-auto max-h-[300px] md:max-h-[400px] lg:max-h-[500px] lg:w-full object-contain rounded-2xl drop-shadow-2xl">
       </div>
       <div class="w-full lg:w-1/2 order-1 lg:order-2 flex flex-col">
         <h2 class="text-5xl font-bold mb-2 text-amber-600 dark:text-purple-300">Luxsariel</h2>
         <p class="text-sm text-stone-500 mb-6 tracking-widest uppercase">The Alchemist of Dust & Change</p>
         <div class="max-h-[400px] overflow-y-auto pr-4 scrollbar-thin">
-          <p class="text-lg leading-relaxed text-stone-700 dark:text-zinc-300">
+          <p class="text-lg leading-relaxed text-stone-700 dark:text-zinc-300 lang"
+             data-zh="Luxsariel 是最初誕生的兩位撒拉弗之一，能同時運用光與塵。他性格活潑好奇，對未知充滿探索慾望，喜歡挑戰現有規範，傾向以塵創造與改造世界。在早期探索與建設的過程中，他積極嘗試新方法與技術，推動變化與進步，對惡魔族的文化發展與創造力培養產生了深遠影響。"
+             data-en="Luxsariel is one of the first two Seraphim, capable of wielding both Light and Dust. Lively and curious, he possesses an intense desire to explore the unknown and loves to challenge existing norms, inclining toward using Dust to create and reshape the world. During the early phases of exploration and construction, he actively experimented with new methods and technologies, driving change and progress. He has had a profound influence on the cultural development and creativity of the Demon race.">
             Luxsariel 是最初誕生的兩位撒拉弗之一，能同時運用光與塵。他性格活潑好奇，對未知充滿探索慾望，喜歡挑戰現有規範，傾向以塵創造與改造世界。在早期探索與建設的過程中，他積極嘗試新方法與技術，推動變化與進步，對惡魔族的文化發展與創造力培養產生了深遠影響。
           </p>
         </div>
@@ -252,27 +258,28 @@
     <section class="flex items-center justify-center bg-stone-50 dark:bg-mauve-900 p-8 lg:p-24">
 
       <div class="w-full max-w-4xl">
-        <h3 class="text-3xl font-bold mb-8 text-amber-600 dark:text-purple-200">
+        <h3 class="text-3xl font-bold mb-8 text-amber-600 dark:text-purple-200 lang"
+            data-zh="角色核心設定" data-en="Core Character Settings">
           角色核心設定
         </h3>
 
         <table class="w-full border border-stone-300 dark:border-zinc-600 text-left">
           <tbody class="divide-y divide-stone-300 dark:divide-zinc-600">
             <tr>
-              <th class="w-1/4 p-4 font-semibold bg-stone-100 dark:bg-zinc-800">種族</th>
-              <td class="p-4">撒拉弗（Seraph）</td>
+              <th class="w-1/4 p-4 font-semibold bg-stone-100 dark:bg-zinc-800 lang" data-zh="種族" data-en="Race">種族</th>
+              <td class="p-4 lang" data-zh="撒拉弗（Seraph）" data-en="Seraph">撒拉弗（Seraph）</td>
             </tr>
             <tr>
-              <th class="p-4 font-semibold bg-stone-100 dark:bg-zinc-800">核心能力</th>
-              <td class="p-4">光／塵（偏向塵）</td>
+              <th class="p-4 font-semibold bg-stone-100 dark:bg-zinc-800 lang" data-zh="核心能力" data-en="Core Abilities">核心能力</th>
+              <td class="p-4 lang" data-zh="光／塵（偏向塵）" data-en="Light / Dust (Affinity for Dust)">光／塵（偏向塵）</td>
             </tr>
             <tr>
-              <th class="p-4 font-semibold bg-stone-100 dark:bg-zinc-800">核心信念</th>
-              <td class="p-4">創造、變化、危險</td>
+              <th class="p-4 font-semibold bg-stone-100 dark:bg-zinc-800 lang" data-zh="核心信念" data-en="Core Beliefs">核心信念</th>
+              <td class="p-4 lang" data-zh="創造、變化、危險" data-en="Creation, Change, Danger">創造、變化、危險</td>
             </tr>
             <tr>
-              <th class="p-4 font-semibold bg-stone-100 dark:bg-zinc-800">象徵顏色</th>
-              <td class="p-4">灰、紫、銀、紅</td>
+              <th class="p-4 font-semibold bg-stone-100 dark:bg-zinc-800 lang" data-zh="象徵顏色" data-en="Symbolic Colors">象徵顏色</th>
+              <td class="p-4 lang" data-zh="灰、紫、銀、紅" data-en="Grey, Purple, Silver, Red">灰、紫、銀、紅</td>
             </tr>
           </tbody>
         </table>
@@ -283,7 +290,8 @@
     <section class="flex items-center justify-center bg-stone-50 dark:bg-mauve-900 p-8 lg:p-24">
 
       <div class="w-full max-w-5xl">
-        <h3 class="text-3xl font-bold mb-10 text-amber-600 dark:text-violet-300">
+        <h3 class="text-3xl font-bold mb-10 text-amber-600 dark:text-violet-300 lang"
+            data-zh="角色成長歷程" data-en="Character Growth Timeline">
           角色成長歷程
         </h3>
 
@@ -291,49 +299,49 @@
           <table class="w-full text-left border-collapse">
             <thead class="text-stone-600 dark:text-zinc-400 text-sm">
               <tr class="border-b border-stone-300 dark:border-mauve-700">
-                <th class="p-4 font-semibold w-1/6">階段</th>
-                <th class="p-4 font-semibold w-1/4">能力發展</th>
-                <th class="p-4 font-semibold w-1/4">外觀服裝</th>
-                <th class="p-4 font-semibold">心理變化</th>
+                <th class="p-4 font-semibold w-1/6 lang" data-zh="階段" data-en="Stage">階段</th>
+                <th class="p-4 font-semibold w-1/4 lang" data-zh="能力發展" data-en="Ability Development">能力發展</th>
+                <th class="p-4 font-semibold w-1/4 lang" data-zh="外觀服裝" data-en="Appearance & Attire">外觀服裝</th>
+                <th class="p-4 font-semibold lang" data-zh="心理變化" data-en="Psychological Changes">心理變化</th>
               </tr>
             </thead>
 
             <tbody class="text-stone-700 dark:text-stone-300">
 
               <tr class="border-b dark:border-mauve-700">
-                <td class="p-4 font-bold text-amber-600 dark:text-violet-300">
+                <td class="p-4 font-bold text-amber-600 dark:text-violet-300 lang" data-zh="嬰兒期" data-en="Infancy">
                   嬰兒期
                 </td>
-                <td class="p-4">未開發</td>
-                <td class="p-4">翅膀本能遮蔽</td>
-                <td class="p-4">天真、象徵無限可能與混沌</td>
+                <td class="p-4 lang" data-zh="未開發" data-en="Undeveloped">未開發</td>
+                <td class="p-4 lang" data-zh="翅膀本能遮蔽" data-en="Wings instinctively shielding">翅膀本能遮蔽</td>
+                <td class="p-4 lang" data-zh="天真、象徵無限可能與混沌" data-en="Innocent, symbolizing infinite possibilities and chaos">天真、象徵無限可能與混沌</td>
               </tr>
 
               <tr class="border-b dark:border-mauve-700 bg-stone-50/60 dark:bg-mauve-800/50">
-                <td class="p-4 font-bold text-amber-600 dark:text-violet-300">
+                <td class="p-4 font-bold text-amber-600 dark:text-violet-300 lang" data-zh="幼年期" data-en="Childhood">
                   幼年期
                 </td>
-                <td class="p-4">學會收起翅膀、行走、學習用塵創造簡單物品</td>
-                <td class="p-4">單色衣物、取材於自然，頭髮凌亂、赤足</td>
-                <td class="p-4">充滿好奇、從自然中學習、依賴Seraphina</td>
+                <td class="p-4 lang" data-zh="學會收起翅膀、行走、學習用塵創造簡單物品" data-en="Learned to retract wings, walk, and use Dust to craft simple items">學會收起翅膀、行走、學習用塵創造簡單物品</td>
+                <td class="p-4 lang" data-zh="單色衣物、取材於自然，頭髮凌亂、赤足" data-en="Monochromatic clothing sourced from nature, messy hair, barefoot">單色衣物、取材於自然，頭髮凌亂、赤足</td>
+                <td class="p-4 lang" data-zh="充滿好奇、從自然中學習、依賴Seraphina" data-en="Full of curiosity, learning from nature, reliant on Seraphina">充滿好奇、從自然中學習、依賴Seraphina</td>
               </tr>
 
               <tr class="border-b dark:border-mauve-700">
-                <td class="p-4 font-bold text-amber-600 dark:text-violet-300">
+                <td class="p-4 font-bold text-amber-600 dark:text-violet-300 lang" data-zh="青少年期" data-en="Adolescence">
                   青少年期
                 </td>
-                <td class="p-4">熟練使用塵</td>
-                <td class="p-4">短髮後梳、灰紫與淡黃調衣物、佩戴銀飾</td>
-                <td class="p-4">展現自我，責任感萌芽</td>
+                <td class="p-4 lang" data-zh="熟練使用塵" data-en="Proficient in wielding Dust">熟練使用塵</td>
+                <td class="p-4 lang" data-zh="短髮後梳、灰紫與淡黃調衣物、佩戴銀飾" data-en="Slicked-back short hair, grey-purple & pale yellow garments, silver accessories">短髮後梳、灰紫與淡黃調衣物、佩戴銀飾</td>
+                <td class="p-4 lang" data-zh="展現自我，責任感萌芽" data-en="Expressing individuality, awakening sense of responsibility">展現自我，責任感萌芽</td>
               </tr>
 
               <tr class="bg-stone-100 dark:bg-mauve-700/40">
-                <td class="p-4 font-bold text-amber-700 dark:text-violet-200">
+                <td class="p-4 font-bold text-amber-700 dark:text-violet-200 lang" data-zh="全盛期" data-en="Prime / Zenith">
                   全盛期
                 </td>
-                <td class="p-4">精進超越、操控塵的形態轉換</td>
-                <td class="p-4">頭髮翹起、隨興、黑紫紅主色、面罩、長角</td>
-                <td class="p-4">煉金術士領導者形象、執著於創造與進化、偏執</td>
+                <td class="p-4 lang" data-zh="精進超越、操控塵的形態轉換" data-en="Transcendent mastery, manipulating morphological shifts of Dust">精進超越、操控塵的形態轉換</td>
+                <td class="p-4 lang" data-zh="頭髮翹起、隨興、黑紫紅主色、面罩、長角" data-en="Spiky/casual hair, black-purple-red theme, face mask, long horns">頭髮翹起、隨興、黑紫紅主色、面罩、長角</td>
+                <td class="p-4 lang" data-zh="煉金術士領導者形象、執著於創造與進化、偏執" data-en="Alchemist leader persona, obsessed with creation and evolution, obsessive">煉金術士領導者形象、執著於創造與進化、偏執</td>
               </tr>
 
             </tbody>
